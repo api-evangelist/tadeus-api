@@ -1,0 +1,47 @@
+name: Tadeus API
+description: >-
+  Tadeus is an AI voice agent platform that interviews your workforce in real voice, acts on what it hears, and returns
+  structured records into existing systems. The public Integration API lets you create interview templates and
+  campaigns, invite participants, and retrieve transcripts, structured results, and AI insights programmatically.
+url: https://tadeus-api.apievangelist.com/apis.yml
+created: '2026-07-06'
+modified: '2026-07-06'
+specificationVersion: '0.21'
+tags:
+  - Voice AI
+  - Research
+  - Interviews
+  - Workforce
+  - HR Tech
+  - Conversational AI
+  - Employee Experience
+apis:
+  - name: Tadeus Integration API
+    description: >-
+      REST API to create interview templates and campaigns, invite participants, and retrieve transcripts, structured
+      results, and AI insights. API-key auth via X-API-KEY-ID and X-API-SECRET headers.
+    humanURL: https://app.tadeus.net/api-examples
+    baseURL: https://app.tadeus.net/api/integration/v1
+    tags:
+      - Voice AI
+      - Research
+      - Interviews
+      - Workforce
+      - HR Tech
+      - Conversational AI
+      - Employee Experience
+    properties:
+      - type: OpenAPI
+        url: https://app.tadeus.net/api/integration/v1/swagger/?format=openapi
+      - type: Documentation
+        url: https://app.tadeus.net/api-examples
+      - type: Documentation
+        url: https://app.tadeus.net/api/integration/v1/swagger/
+maintainers:
+  - FN: Tadeus
+    url: mailto:contact@tadeus.net
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-07-06T14:27:09.314Z'
