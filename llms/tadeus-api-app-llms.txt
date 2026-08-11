@@ -1,0 +1,20 @@
+# Tadeus - AI-Powered Qualitative Research
+
+Scale your qualitative insights with AI agents that interview, moderate, and synthesize human sentiment in real-time.
+
+## Key Features
+- **AI Interviewers**: Natural voice-based AI agents that conduct human-like interviews.
+- **Real-time Synthesis**: Instant analysis and summarization of qualitative data.
+- **Campaign Management**: Tools for researchers to design and deploy surveys at scale.
+- **Privacy First**: Secure, anonymized handling of research participants' data.
+
+## Public Routes
+- [Main Landing Page](/) - Platform overview and value proposition.
+- [Log In](/login) - Access the researcher dashboard.
+- [Sign Up](/register) - Create a new researcher account.
+- [Privacy Policy](/privacy) - Data handling and compliance information.
+- [Terms of Service](/terms) - Usage agreements.
+- [Contact](/contact) - Support and inquiry channels.
+
+## Technical Details
+This site uses React with static pre-rendering for SEO. Dynamic application paths (Dashboard, Campaigns) are protected and not listed here.

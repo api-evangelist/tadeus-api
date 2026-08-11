@@ -1,0 +1,81 @@
+generated: '2026-08-11'
+method: generated
+source:
+  - openapi/tadeus-api-integration-openapi.json
+  - https://tadeus.net/api-examples
+  - https://tadeus.net/trust
+note: >-
+  Tadeus publishes no AGENTS.md and no packaged skills of its own. These three are generated
+  by API Evangelist from the provider's real 47-operation Swagger document and its own
+  published walkthrough. Every operationId referenced was grepped out of the spec; none is
+  invented. They mirror the three flows Tadeus documents: a named-cohort campaign, the
+  cross-session synthesis, and the anonymous pulse.
+api: Tadeus Integration API
+base_url: https://app.tadeus.net/api/integration/v1
+skills:
+  - name: tadeus-api-run-interview-campaign
+    file: tadeus-api-run-interview-campaign.md
+    summary: >-
+      End-to-end AI-moderated voice interview campaign against a named cohort: template,
+      campaign, invite/bulk-invite, poll, structured results.
+    operations:
+      - templates_create
+      - templates_read
+      - campaigns_create
+      - campaigns_read
+      - campaigns_invite
+      - campaigns_bulk_invite
+      - sessions_list
+      - results_list
+      - results_read
+      - organisation_read
+  - name: tadeus-api-synthesize-campaign-insights
+    file: tadeus-api-synthesize-campaign-insights.md
+    summary: >-
+      Cross-session synthesis for a finished campaign, how to detect completion of the
+      undocumented async job, and the four export renderings.
+    operations:
+      - campaigns_generate_insights
+      - insights_list
+      - insights_read
+      - insights_markdown
+      - insights_pdf
+      - insights_html
+      - insights_lexical
+      - results_export_export_csv
+      - results_export_export_json
+      - transcripts_list
+      - transcripts_read
+  - name: tadeus-api-run-anonymous-pulse
+    file: tadeus-api-run-anonymous-pulse.md
+    summary: >-
+      The no-participant-data variant using email_capture_mode "none", and the aggregate-only
+      discipline that keeps a workforce deployment outside EU AI Act Annex III point 4.
+    operations:
+      - templates_create
+      - campaigns_create
+      - sessions_create
+      - sessions_list
+      - sessions_read
+      - results_list
+      - attempts_list
+      - campaigns_generate_insights
+cross_cutting_rules_every_skill_carries:
+  - >-
+    Both X-API-KEY-ID and X-API-SECRET headers are required on every request; the spec's
+    OR-semantics security array understates this.
+  - >-
+    The base host is app.tadeus.net. The provider's own published examples use tadeus.net,
+    which 404s.
+  - >-
+    There is no idempotency key on any operation, including the ones that email real
+    employees. Reconcile with a list call before retrying a POST.
+  - >-
+    The spec declares zero 4xx/5xx responses. Errors are the DRF {"detail": "..."} envelope.
+  - >-
+    No rate limits and no rate-limit headers are published. max_sessions, attempts_allowed
+    and the credit balance are the only ceilings.
+  - >-
+    Quality signals (confidence, relevance, sentiment, engagement) describe responses, not
+    people. Reporting them per individual changes the EU AI Act classification of the
+    deployment.

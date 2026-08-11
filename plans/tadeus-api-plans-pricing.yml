@@ -1,0 +1,100 @@
+generated: '2026-08-11'
+method: searched
+source: https://tadeus.net/#pricing
+currency: GBP
+billing_period: monthly
+plan_count: 3
+public_pricing: true
+free_tier: false
+trial: true
+trial_note: >-
+  Every tier's call to action is "Start Trial" / "Start for free", and the API examples page
+  says "Spin up a free Tadeus account". The trial length is not published.
+metering_unit: minutes of processing
+note: >-
+  Prices are listed verbatim from the pricing section on the Tadeus homepage. There is no
+  standalone /pricing page (https://tadeus.net/pricing returns 404); the nav "Pricing" link
+  targets the #pricing anchor on the homepage. Overage rates are not published for any tier.
+plans:
+  - name: Starter
+    price: 10
+    currency: GBP
+    period: month
+    display: "£10 / month"
+    included_quota:
+      processing_minutes: 90
+      approximate: true
+    seats: 2
+    api_access: partial
+    features:
+      - Unlimited agents
+      - Priority analysis queue
+      - 2 Team seats
+    quote: >-
+      "Monthly subscription. Includes ~90 minutes of processing and priority queuing."
+    overage: null
+    cta: Start Trial
+  - name: Growth
+    price: 50
+    currency: GBP
+    period: month
+    display: "£50 / month"
+    popular: true
+    included_quota:
+      processing_minutes: 600
+      approximate: true
+    api_access: full
+    features:
+      - Everything in Starter
+      - Full API Access
+      - Dedicated success manager
+      - Advanced analytics
+    quote: '"For serious teams. ~600 minutes + advanced analytics and full API access."'
+    overage: null
+    cta: Start Trial
+  - name: Enterprise
+    price: null
+    price_display: "£Ask us / month"
+    currency: GBP
+    period: month
+    contact_sales: true
+    features:
+      - Everything in Growth
+      - SSO, SAML & EU data residency
+      - DPA, SLA & security review
+      - Volume minutes & seats
+    quote: >-
+      "For regulated rollouts at scale. Custom volume, security review, and a deployment
+      that fits your stack."
+    cta: Contact Sales
+api_access_gating:
+  note: >-
+    "Full API Access" is listed as a Growth-tier (£50/month) feature, which implies the
+    Starter tier's API access is limited or absent. What is limited is not stated, and the
+    API reference does not mention tier gating at all.
+in_api:
+  note: >-
+    Credit balance and the transaction ledger are exposed programmatically, so consumption
+    is machine-readable even though the price book is not.
+  operations:
+    - billing_balance_list
+    - billing_balance_read
+    - billing_transactions_list
+    - billing_transactions_read
+    - billing_payments_list
+    - billing_payments_read
+provider_gaps:
+  - No machine-readable pricing or catalog endpoint.
+  - No overage rate published for any tier.
+  - No standalone pricing URL — the page is an anchor on the homepage.
+  - >-
+    "Full API Access" on Growth implies a Starter-tier API restriction that is never
+    specified.
+x-evidence:
+  fetched: '2026-08-11'
+  evidence:
+    - url: https://tadeus.net/
+      http_status: 200
+      note: pricing section rendered in the served HTML
+    - url: https://tadeus.net/pricing
+      http_status: 404

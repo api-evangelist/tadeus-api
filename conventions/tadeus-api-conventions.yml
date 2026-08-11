@@ -1,0 +1,156 @@
+generated: '2026-08-11'
+method: searched
+source: https://tadeus.net/api-examples
+derived_from:
+  - openapi/tadeus-api-integration-openapi.json
+  - live unauthenticated probe of https://app.tadeus.net/api/integration/v1/organisation/
+summary: >-
+  The Tadeus Integration API is a Django REST Framework surface: URI-path versioning,
+  trailing-slash resource paths, UUID primary keys on the domain objects, key-pair header
+  auth, and DRF's standard count/next/previous/results pagination envelope. It has no
+  idempotency mechanism, no documented rate limiting, no RFC 9457 problem details, and no
+  request-id tracing header.
+authentication:
+  style: api-key-pair
+  transport: headers
+  headers:
+    - X-API-KEY-ID
+    - X-API-SECRET
+  session_based: false
+  issuance: Tadeus dashboard, under "API access"
+  docs: https://tadeus.net/api-examples
+  quote: >-
+    "The Integration API is keyed, not session-based. Send your key id and secret as
+    headers on every call."
+  note: >-
+    Two separate apiKey security schemes are declared in the spec (api_key and api_secret)
+    and combined with OR semantics in the top-level security array, which understates the
+    real requirement — both headers are mandatory on every call per the documentation.
+idempotency:
+  supported: false
+  header: null
+  evidence: >-
+    No Idempotency-Key or equivalent parameter appears anywhere in the 47-operation spec,
+    and the documentation never mentions safe retries. This matters more than usual here:
+    campaigns_invite and campaigns_bulk_invite send real invitations to real employees, and
+    campaigns_generate_insights starts a billed synthesis job. A retried POST after a
+    timeout has no defined behaviour.
+  note: >-
+    NO Idempotency pointer is emitted in apis.yml for this provider. The absence is the
+    finding.
+pagination:
+  style: page-number
+  framework: Django REST Framework
+  request_params:
+    - name: page
+      in: query
+      description: A page number within the paginated result set.
+      declared_on: all list operations
+  response_fields:
+    count: total number of records
+    next: absolute URL of the next page, or null
+    previous: absolute URL of the previous page, or null
+    results: the array of records
+  example_source: https://tadeus.net/api-examples
+  note: >-
+    Page size is not exposed as a query parameter in the spec, so a consumer cannot control
+    it. No cursor pagination.
+filtering:
+  documented:
+    - operation: sessions_list
+      params: [campaign_uuid, status]
+      source: https://tadeus.net/api-examples
+    - operation: results_list
+      params: [campaign_uuid]
+      source: https://tadeus.net/api-examples
+    - operation: insights_list
+      params: [campaign_uuid]
+      source: https://tadeus.net/api-examples
+  note: >-
+    These filters are used in Tadeus' own published examples but are NOT declared as
+    parameters in the Swagger document — only `page` is. The spec understates the real
+    query surface, which is a machine-readability gap for any agent generating calls from
+    the spec alone.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  supported: true
+  note: >-
+    Campaign carries a free-form `settings` object; Template carries a free-form
+    `output_schema` object that defines the shape of the structured result returned per
+    session. Result.output_json is the instantiation of that schema.
+request_id_tracing:
+  header: null
+  supported: false
+  note: >-
+    No X-Request-Id / traceparent on responses observed. Cloudflare's cf-ray is present but
+    is edge infrastructure, not an application correlation id.
+versioning:
+  style: uri-path
+  current: v1
+  base: https://app.tadeus.net/api/integration/v1
+  spec_version_field: v1
+  media_type_versioning: false
+error_envelope:
+  format: drf-detail
+  rfc9457: false
+  content_type: application/json
+  shape:
+    detail: human-readable message string
+  observed:
+    - status: 403
+      body: '{"detail":"Authentication credentials were not provided."}'
+      url: https://app.tadeus.net/api/integration/v1/organisation/
+    - status: 401
+      body: >-
+        {"detail":"Authentication required. Pass ''api_key_id'' and ''api_secret'' in query
+        parameters or headers."}
+      url: https://app.tadeus.net/mcp
+  note: >-
+    No machine-readable error code, no type URI, no field-level validation shape published.
+    See errors/tadeus-api-problem-types.yml.
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: null
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header observed on any response, and no
+    limits are documented. See rate-limits/tadeus-api-rate-limits.yml.
+content_types:
+  consumes: [application/json]
+  produces: [application/json]
+  exceptions:
+    - operation: insights_pdf
+      note: returns a PDF rendering
+    - operation: insights_html
+      note: returns an HTML rendering
+    - operation: insights_markdown
+      note: returns a Markdown rendering
+    - operation: results_export_export_csv
+      note: returns CSV
+transport_security:
+  https_only: true
+  tls: TLSv1.3
+  hsts: false
+  headers_observed:
+    - x-frame-options: DENY
+    - x-content-type-options: nosniff
+    - referrer-policy: same-origin
+    - cross-origin-opener-policy: same-origin
+    - x-robots-tag: 'noindex, nofollow'
+webhooks:
+  documented: false
+  claimed: true
+  note: >-
+    Tadeus markets a webhook capability — the homepage shows "POST /v1/webhooks write back
+    on events" and the API examples page is badged "Webhooks-ready" — but no webhook
+    endpoint, event catalog, payload schema, signing scheme or retry policy is published
+    anywhere, and no webhook path exists in the 47-operation spec. The claim is not backed
+    by a documented surface, so no Webhooks pointer is emitted.
+cross_links:
+  errors: errors/tadeus-api-problem-types.yml
+  lifecycle: lifecycle/tadeus-api-lifecycle.yml
+  authentication: authentication/tadeus-api-authentication.yml
+  rate_limits: rate-limits/tadeus-api-rate-limits.yml
+  data_model: data-model/tadeus-api-data-model.yml

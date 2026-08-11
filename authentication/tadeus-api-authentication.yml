@@ -1,0 +1,87 @@
+generated: '2026-08-11'
+method: searched
+source: openapi/tadeus-api-integration-openapi.json
+docs: https://tadeus.net/api-examples
+summary:
+  types:
+    - apiKey
+  api_key_in:
+    - header
+  model: static-key-pair
+  oauth2: false
+  oidc: false
+  mtls: false
+  scopes: false
+  rotation_documented: false
+  expiry_documented: false
+quote: >-
+  "The Integration API is keyed, not session-based. Send your key id and secret as headers
+  on every call. Load them from the environment so they never end up in source control."
+issuance:
+  where: Tadeus dashboard, under "API access"
+  self_service: true
+  source: https://tadeus.net/api-examples
+schemes:
+  - name: api_key
+    type: apiKey
+    in: header
+    parameter: X-API-KEY-ID
+    required: true
+    sources:
+      - openapi/tadeus-api-integration-openapi.json
+      - https://tadeus.net/api-examples
+  - name: api_secret
+    type: apiKey
+    in: header
+    parameter: X-API-SECRET
+    required: true
+    sources:
+      - openapi/tadeus-api-integration-openapi.json
+      - https://tadeus.net/api-examples
+spec_vs_docs_discrepancy: >-
+  The Swagger document declares the two headers as SEPARATE apiKey schemes and combines them
+  in a top-level `security: [{api_key: []}, {api_secret: []}]` array, which is OR semantics —
+  a code generator reading the contract alone will produce a client that sends only one
+  header. The documentation is unambiguous that both are required on every call. Correct
+  behaviour is AND; the contract says OR.
+agent_surface:
+  mcp:
+    url: https://app.tadeus.net/mcp
+    scheme: same key pair
+    parameter_names: [api_key_id, api_secret]
+    accepted_in: [query parameters, headers]
+    challenge_status: 401
+    challenge_body: >-
+      {"detail":"Authentication required. Pass 'api_key_id' and 'api_secret' in query
+      parameters or headers."}
+    oauth: false
+    note: >-
+      The MCP server accepts the credentials in QUERY PARAMETERS as well as headers, which
+      puts long-lived secrets into URLs, proxy logs and browser history. It also does not
+      implement the MCP OAuth flow, and publishes no
+      /.well-known/oauth-protected-resource (403), so an MCP client cannot discover the auth
+      requirement programmatically.
+observed_behaviour:
+  - url: https://app.tadeus.net/api/integration/v1/organisation/
+    sent: no credentials
+    status: 403
+    body: '{"detail":"Authentication credentials were not provided."}'
+    www_authenticate: absent
+    note: >-
+      Returns 403 rather than the 401 RFC 9110 specifies for a missing credential, and sends
+      no WWW-Authenticate challenge.
+enterprise:
+  sso: true
+  saml: true
+  note: >-
+    "SSO, SAML & EU data residency" is an Enterprise-tier entitlement
+    (https://tadeus.net/#pricing). This is dashboard sign-in, not API authentication — the
+    API surface is key-pair only at every tier.
+provider_gaps:
+  - >-
+    Express the two headers as a single AND requirement in the contract
+    (`security: [{api_key: [], api_secret: []}]`), or the generated clients will be wrong.
+  - Publish key rotation and expiry guidance; neither is documented.
+  - Return 401 with WWW-Authenticate instead of 403 for a missing credential.
+  - Stop accepting the secret in MCP query parameters.
+  - No scopes or least-privilege model exists — one key pair is full account access.

@@ -1,0 +1,61 @@
+generated: '2026-08-11'
+method: searched
+source: https://tadeus.net/api-examples
+limit_count: 0
+documented: false
+headers: []
+status_on_exhaustion: null
+retry_after: false
+note: >-
+  Tadeus publishes no rate limits. The API reference (the Swagger UI at
+  app.tadeus.net/api/integration/v1/swagger/), the API examples walkthrough and the pricing
+  section were all read and none states a request ceiling, a window, a burst allowance or a
+  429 behaviour. No RateLimit-*, X-RateLimit-* or Retry-After header was present on any
+  live response observed against app.tadeus.net. This is an honest zero, not an unchecked
+  field — and NO RateLimits pointer is emitted in apis.yml, because a zero-limit artifact
+  must not be credited as a published rate-limit signal.
+adjacent_controls:
+  note: >-
+    Tadeus does gate volume, just not with request-rate limits. What exists instead:
+  controls:
+  - control: processing-minute quota per plan
+    detail: ~90 minutes on Starter, ~600 minutes on Growth, custom on Enterprise
+    source: https://tadeus.net/#pricing
+  - control: campaign-level session cap
+    detail: >-
+      `max_sessions` on campaigns_create is described by Tadeus as "a safety cap" on how
+      many participants a campaign can consume.
+    source: https://tadeus.net/api-examples
+  - control: per-session attempt caps
+    detail: >-
+      Session carries `attempts_allowed` and `success_attempts_allowed`, capping how many
+      times a participant can re-enter a conversation.
+    source: openapi/tadeus-api-integration-openapi.json
+  - control: credit balance
+    detail: >-
+      A credit balance and transaction ledger are exposed via billing_balance_* and
+      billing_transactions_*, so consumption is readable at runtime — but no error contract
+      exists for the exhausted state.
+    source: openapi/tadeus-api-integration-openapi.json
+provider_gaps:
+  - >-
+    Publish request rate limits and return RateLimit-Limit / RateLimit-Remaining /
+    RateLimit-Reset headers (RFC 9331 style) so an agent can pace itself.
+  - >-
+    Document the 429 response and a Retry-After. campaigns_bulk_invite in particular
+    invites an entire cohort in one call with no stated ceiling on roster size.
+  - >-
+    Document what happens when the processing-minute quota or credit balance runs out
+    mid-campaign.
+x-evidence:
+  fetched: '2026-08-11'
+  evidence:
+    - url: https://app.tadeus.net/api/integration/v1/organisation/
+      http_status: 403
+      note: no rate-limit headers present on the response
+    - url: https://tadeus.net/api-examples
+      http_status: 200
+      note: no rate-limit section
+    - url: https://app.tadeus.net/api/integration/v1/swagger/?format=openapi
+      http_status: 200
+      note: no x-ratelimit extensions, no 429 responses declared

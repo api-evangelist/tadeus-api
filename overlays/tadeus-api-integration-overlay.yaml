@@ -1,0 +1,138 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay for the Tadeus Integration API
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-11'
+  method: generated
+  source: openapi/tadeus-api-integration-openapi.json
+  note: >-
+    Captures API Evangelist's enrichment of the Tadeus Integration API without mutating the
+    harvested spec. Every value below is sourced from the provider's own published
+    documentation (https://tadeus.net/api-examples, https://tadeus.net/mcp,
+    https://tadeus.net/#pricing) or from a live probe recorded in this repo. Nothing is
+    invented. The target spec is Swagger 2.0, so JSONPath targets use Swagger 2.0 node
+    names (definitions, securityDefinitions) rather than OpenAPI 3 components.
+extends: ../openapi/tadeus-api-integration-openapi.json
+actions:
+  - target: $.info
+    description: Add contact, licence-free terms link and a real description.
+    update:
+      description: >-
+        The Tadeus Integration API creates interview templates and campaigns, invites
+        participants, and returns transcripts, structured results and AI-generated insights
+        for AI-moderated voice interviews with a workforce. Authentication is a key pair
+        sent as X-API-KEY-ID and X-API-SECRET headers on every request, generated in the
+        Tadeus dashboard under API access. Responses are paginated with the Django REST
+        Framework count/next/previous/results envelope.
+      contact:
+        name: Tadeus
+        url: https://tadeus.net/contact
+      termsOfService: https://tadeus.net/terms
+      x-api-evangelist-notes:
+        base_url_correction: >-
+          The provider's published Python and cURL examples set BASE_URL to
+          https://tadeus.net/api/integration/v1, which returns 404 with
+          {"ok":false,"error":"not_found"}. The correct base, per this spec's own `host`
+          field and verified live, is https://app.tadeus.net/api/integration/v1.
+  - target: $.securityDefinitions.api_key
+    description: >-
+      Record that both key headers are required together, which the OR-semantics top-level
+      security array understates.
+    update:
+      description: >-
+        Key ID. MUST be sent together with the X-API-SECRET header — the two apiKey schemes
+        are declared separately but are not alternatives.
+      x-issued-at: Tadeus dashboard, "API access"
+  - target: $.securityDefinitions.api_secret
+    description: Same note on the secret half of the pair.
+    update:
+      description: >-
+        Key secret. MUST be sent together with the X-API-KEY-ID header.
+      x-issued-at: Tadeus dashboard, "API access"
+  - target: $
+    description: >-
+      Attach the cross-cutting runtime semantics an agent needs and the contract does not
+      state, all derived from artifacts in this repo.
+    update:
+      x-api-evangelist-conventions:
+        pagination:
+          style: page-number
+          request_param: page
+          response_fields: [count, next, previous, results]
+        error_envelope:
+          format: drf-detail
+          shape: '{"detail": "string"}'
+          rfc9457: false
+          note: >-
+            No 4xx or 5xx response is declared on any of the 47 operations in this spec.
+        idempotency:
+          supported: false
+          note: >-
+            No Idempotency-Key. Retrying campaigns_invite, campaigns_bulk_invite or
+            campaigns_generate_insights after a timeout has undefined behaviour.
+        rate_limits:
+          documented: false
+          headers: []
+        transport:
+          https_only: true
+          tls: TLSv1.3
+          hsts: false
+      x-api-evangelist-agent-surface:
+        mcp_server: https://app.tadeus.net/mcp
+        mcp_gated: true
+        published_tools: [search_transcripts, list_campaign_insights, get_campaign_stats]
+        crosswalk: ../mcp/tadeus-api-tool-crosswalk.yml
+      x-api-evangelist-regulatory:
+        regime: EU AI Act (Regulation 2024/1689)
+        posture: >-
+          Workforce AI. Provider publishes a versioned self-classification arguing
+          aggregate-only output keeps it outside Annex III point 4, and states that no
+          emotion inference is performed (Article 5(1)(f)). Article 50 disclosure applies
+          from 2026-08-02.
+        documents: https://tadeus.net/trust
+        note: >-
+          Consumers embedding this API into a workforce platform inherit Article 26 deployer
+          duties. See conformance/tadeus-api-conformance.yml.
+  - target: $.paths['/campaigns/{uuid}/invite/'].post
+    description: >-
+      Flag a consequential, non-idempotent, outward-facing operation. Sourced from the
+      provider's own example step 04.
+    update:
+      x-api-evangelist-consequence: high
+      x-api-evangelist-note: >-
+        Sends a real invitation to a real person and creates a session that consumes
+        campaign quota. Not idempotent and has no idempotency key. An agent must not retry
+        blind on timeout.
+  - target: $.paths['/campaigns/{uuid}/bulk-invite/'].post
+    description: Same flag, at cohort scale.
+    update:
+      x-api-evangelist-consequence: high
+      x-api-evangelist-note: >-
+        Invites an entire roster in one call — the provider's example describes a
+        5,000-person rollout. No roster-size ceiling, no rate limit and no idempotency key
+        are published. This is the single highest-blast-radius operation in the API.
+  - target: $.paths['/campaigns/{uuid}/generate-insights/'].post
+    description: Flag the billed asynchronous job.
+    update:
+      x-api-evangelist-consequence: medium
+      x-api-evangelist-note: >-
+        Starts a cross-session synthesis job that consumes processing minutes. Returns 201;
+        no job id, status field or completion signal is documented, so the only way to know
+        it finished is to poll insights_list.
+  - target: $.paths['/sessions/'].post
+    description: Record the privacy lever on session creation.
+    update:
+      x-api-evangelist-note: >-
+        Setting email_capture_mode to "none" creates an anonymous session with no
+        participant attached. This is the mechanism that keeps a deployment aggregate-only,
+        which is the pivot of the provider's own EU AI Act classification argument.
+  - target: $.definitions.Result
+    description: Document the four quality signals an agent is meant to reason over.
+    update:
+      x-api-evangelist-note: >-
+        confidence, relevance, sentiment and engagement are 0-1 signals about the RESPONSE,
+        derived from what was said (comprehension, relevance, completion). The provider
+        states explicitly that they are not voice-tone emotion inference and not profiles of
+        people — the distinction its Article 5(1)(f) position rests on. output_json conforms
+        to the customer-supplied output_schema on the Template.

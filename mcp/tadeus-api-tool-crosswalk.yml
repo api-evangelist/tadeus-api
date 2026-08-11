@@ -1,0 +1,142 @@
+generated: '2026-08-11'
+method: derived
+source: >-
+  mcp/tadeus-api-mcp.yml (tool names published at https://tadeus.net/mcp) bound to
+  openapi/tadeus-api-integration-openapi.json operationIds
+note: >-
+  The live MCP tools/list is auth-gated (401), so no tool inputSchema could be read.
+  Every binding below is therefore matched by NAME AND SEMANTICS against the published
+  REST operations, and confidence is set accordingly. Nothing here is asserted as a
+  verified schema-level mapping.
+surfaces:
+  openapi:
+    file: openapi/tadeus-api-integration-openapi.json
+    spec: swagger 2.0
+    base: https://app.tadeus.net/api/integration/v1
+    operations: 47
+    gated: true
+    note: >-
+      The spec document itself is public and anonymous; the operations require the
+      X-API-KEY-ID / X-API-SECRET header pair.
+  mcp:
+    url: https://app.tadeus.net/mcp
+    gated: true
+    note: 401 on tools/list; tool set known only from the provider's product page.
+  graphql:
+    present: false
+crosswalk:
+  - tool: search_transcripts
+    category: read
+    rest:
+      - transcripts_list
+      - transcripts_read
+    binding: semantic
+    confidence: medium
+    note: >-
+      REST exposes transcript listing and retrieval but no documented full-text search
+      parameter, so the MCP tool is at minimum a search layer over transcripts_list.
+      The searching itself may be MCP-side.
+  - tool: list_campaign_insights
+    category: read
+    rest:
+      - insights_list
+      - insights_read
+    binding: semantic
+    confidence: high
+    note: >-
+      insights_list accepts a campaign filter in the documented examples
+      (params={"campaign_uuid": ...}), which is exactly this tool's shape.
+  - tool: get_campaign_stats
+    category: read
+    rest:
+      - campaigns_read
+      - sessions_list
+      - results_list
+    binding: composite
+    confidence: low
+    note: >-
+      No REST operation returns campaign statistics. "Completion by site" would have to be
+      composed client-side from sessions_list (status filtering) and results_list. This is
+      an MCP-side aggregation with no single REST equivalent.
+mcp_only:
+  - tool: get_campaign_stats
+    reason: >-
+      No REST operation returns aggregate campaign statistics; the MCP server computes it.
+rest_only:
+  - operations:
+      - templates_list
+      - templates_create
+      - templates_read
+      - templates_update
+      - templates_partial_update
+      - templates_delete
+    reason: >-
+      Interview template authoring has no named MCP tool. The MCP page describes an agent
+      "defining the question", which implies a template-creating tool exists but is unnamed.
+  - operations:
+      - campaigns_list
+      - campaigns_create
+      - campaigns_read
+      - campaigns_update
+      - campaigns_partial_update
+      - campaigns_delete
+      - campaigns_invite
+      - campaigns_bulk_invite
+      - campaigns_generate_insights
+    reason: >-
+      Campaign lifecycle and invitation. The MCP page says agents can "commission
+      interviews" and "monitor campaigns", so tools likely exist here but are not named.
+  - operations:
+      - sessions_list
+      - sessions_create
+      - sessions_read
+      - sessions_update
+      - sessions_partial_update
+      - sessions_delete
+    reason: Session lifecycle; no named MCP tool.
+  - operations:
+      - results_list
+      - results_read
+      - results_export_export_csv
+      - results_export_export_json
+    reason: >-
+      Structured results and bulk export; no named MCP tool. Export-to-file is a poor fit
+      for a tool response, which may be deliberate.
+  - operations:
+      - insights_create
+      - insights_update
+      - insights_partial_update
+      - insights_delete
+      - insights_html
+      - insights_lexical
+      - insights_markdown
+      - insights_pdf
+    reason: Insight authoring and the four export renderings; no named MCP tool.
+  - operations:
+      - attempts_list
+      - attempts_read
+    reason: Per-attempt records; no named MCP tool.
+  - operations:
+      - organisation_list
+      - organisation_read
+    reason: Account context; no named MCP tool.
+  - operations:
+      - billing_balance_list
+      - billing_balance_read
+      - billing_payments_list
+      - billing_payments_read
+      - billing_transactions_list
+      - billing_transactions_read
+    reason: >-
+      Credit balance, payments and transaction ledger. Deliberately absent from the agent
+      surface would be a defensible design choice, but it is not stated either way.
+coverage:
+  mcp_tools_published: 3
+  mcp_tools_bound_to_rest: 2
+  mcp_tools_mcp_only: 1
+  rest_operations_total: 47
+  rest_operations_with_a_named_tool: 8
+  rest_operations_without_a_named_tool: 39
+  confidence_note: >-
+    The 39 uncovered REST operations are an upper bound on the divergence, not a measured
+    one: the real tool list is gated and Tadeus names only 3 of its tools publicly.

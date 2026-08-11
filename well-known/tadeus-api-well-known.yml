@@ -1,0 +1,84 @@
+generated: '2026-08-11'
+method: probed
+source: live GET probes of every /.well-known/ path on all Tadeus hosts
+note: >-
+  No pointer is emitted for this artifact. Every /.well-known/ path on every Tadeus host
+  returns HTTP 403 Forbidden from the edge (Cloudflare / nginx), including the RFC 9116
+  security.txt path. The 403 is a blanket edge rule on the /.well-known/ prefix rather than
+  a per-document decision — the identical "403 Forbidden" HTML body is returned for paths
+  that could not exist. Tadeus therefore serves NO discovery surface at the well-known
+  namespace: no security.txt, no OIDC/OAuth metadata, no api-catalog, no ai-plugin, no
+  agent card. This is a recorded absence, not a presence.
+hosts:
+  - host: app.tadeus.net
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+  - host: tadeus.net
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+  - host: www.tadeus.net
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+adjacent_surfaces_that_did_answer:
+  - path: /llms.txt
+    hosts: [tadeus.net, www.tadeus.net, app.tadeus.net]
+    status: 200
+    note: saved verbatim to llms/
+  - path: /robots.txt
+    hosts: [tadeus.net, app.tadeus.net]
+    status: 200
+    note: >-
+      Explicitly allows GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-Web,
+      anthropic-ai, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended
+      and CCBot. Tadeus opts IN to AI crawlers by name.
+  - path: /sitemap-index.xml
+    hosts: [tadeus.net]
+    status: 200
+provider_gap: >-
+  Lifting the blanket 403 on /.well-known/ and publishing an RFC 9116 security.txt would be
+  the single cheapest agent-readiness and security-posture improvement available to Tadeus.

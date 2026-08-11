@@ -1,0 +1,16 @@
+generated: '2026-08-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: app.tadeus.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  9 03:57:00 2026 GMT
+  hsts: false
+domains:
+- domain: tadeus.net
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

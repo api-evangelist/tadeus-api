@@ -1,0 +1,197 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/tadeus-api-integration-openapi.json
+enriched_by: https://tadeus.net/api-examples
+summary: >-
+  Eleven definitions across two clusters. The core cluster is a clean linear pipeline —
+  Template defines the interview, Campaign instances it, Session is one person's
+  participation, Attempt is one conversation within a session, and Transcript, Result and
+  Insight are what comes back. The second cluster is billing (credit balance, transactions,
+  payments), which is unrelated to the interview graph and joins only at Organisation.
+id_strategy:
+  primary: uuid
+  note: >-
+    Every domain object except Result, CreditBalance and CreditTransaction is keyed by an
+    unprefixed UUID v4 and addressed at /{uuid}/. Result uses an integer `id`, and
+    billing balance/payments/transactions use /{id}/ paths — the only inconsistency in the
+    key strategy. There are no typed id prefixes (no `tpl_`, `cmp_` style), so an id alone
+    does not tell an agent what kind of object it points at.
+  relationship_fields: >-
+    Relationships are expressed as flat UUID reference fields (`template_uuid`,
+    `campaign_uuid`, `session_uuid`, `attempt_uuid`), never as $ref-embedded objects. There
+    is no expansion mechanism, so traversing the graph always costs an extra call.
+entities:
+  - name: Template
+    path: /templates/
+    key: uuid
+    description: >-
+      Defines how the agent interviews and what structured output is expected back. Reused
+      across many campaigns.
+    fields: [uuid, name, version, interview_prompt, summary_prompt, insights_prompt, output_schema, status, created_at, updated_at, campaigns]
+    required: [name]
+    note: >-
+      `output_schema` is a free-form object supplied by the customer; it is the contract for
+      Result.output_json. `version` and `status` (e.g. "published") are carried on the
+      template, which is the only in-band versioning anywhere in the API.
+  - name: Campaign
+    path: /campaigns/
+    key: uuid
+    description: Points at a template and controls access, window and volume.
+    fields: [uuid, name, template_uuid, start_at, end_at, settings, active, type, access_type, max_sessions, created_at]
+    required: [name, template_uuid]
+    note: >-
+      `access_type` is invite_only or open; `max_sessions` is the safety cap; `settings` is
+      free-form.
+  - name: Session
+    path: /sessions/
+    key: uuid
+    description: One participant's participation in a campaign.
+    fields: [uuid, campaign_uuid, status, started_at, last_activity_at, attempts_allowed, attempts_count, success_attempts_allowed, success_attempts, closed, email_capture_mode, created_at]
+    required: [campaign_uuid]
+    note: >-
+      `email_capture_mode: none` creates an anonymous session with no participant attached.
+      This is the privacy lever in the data model.
+  - name: Attempt
+    path: /attempts/
+    key: uuid
+    description: One conversation within a session; a session may allow several.
+    fields: [uuid, session_uuid, attempt_number, state, success, start_ts, end_ts, finish_reason, sentiment, confidence, engagement, created_at]
+    required: [session_uuid]
+    read_only: true
+  - name: Transcript
+    path: /transcripts/
+    key: uuid
+    description: The text of one attempt. Tadeus stores the transcript, never the audio.
+    fields: [uuid, attempt_uuid, text, source, created_at]
+    required: [text]
+    read_only: true
+  - name: Result
+    path: /results/
+    key: id
+    description: >-
+      The structured outcome of a completed session: a summary, the customer's
+      output_schema instantiated as output_json, and four quality signals.
+    fields: [id, session_uuid, campaign_uuid, short_summary, summary_text, output_json, confidence, relevance, sentiment, engagement, validated, created_at]
+    read_only: true
+    note: >-
+      Denormalised — carries BOTH session_uuid and campaign_uuid. The four signals
+      (confidence, relevance, sentiment, engagement) are the "quality signal" Tadeus markets
+      to agents; they are numeric 0-1 attributes of the RESPONSE, and Tadeus is explicit
+      that they are not profiles of people.
+  - name: Insight
+    path: /insights/
+    key: uuid
+    description: Cross-session synthesis over a campaign's results.
+    fields: [uuid, executive_summary, content, output_json_summary, created_at]
+    required: [content]
+    renderings: [html, markdown, pdf, lexical]
+  - name: InsightList
+    path: /insights/
+    key: uuid
+    description: The list projection of Insight (uuid + created_at only).
+    fields: [uuid, created_at]
+  - name: Organisation
+    path: /organisation/
+    key: uuid
+    description: The account. Read-only; also addressable by integer id.
+    fields: [uuid, name, logo, address, active, created_at]
+    required: [name]
+  - name: CreditBalance
+    path: /billing/balance/
+    key: id
+    description: Current credit balance for the organisation.
+    fields: [balance, total_deposited, updated_at]
+  - name: CreditTransaction
+    path: /billing/transactions/
+    key: id
+    description: Ledger entry against the credit balance.
+    fields: [id, amount, source, reason, timestamp, balance_after]
+    required: [amount]
+relationships:
+  - from: Campaign
+    to: Template
+    type: belongs_to
+    via: template_uuid
+    confidence: high
+  - from: Template
+    to: Campaign
+    type: has_many
+    via: campaigns
+    confidence: high
+    note: Template exposes a read-only `campaigns` field.
+  - from: Session
+    to: Campaign
+    type: belongs_to
+    via: campaign_uuid
+    confidence: high
+  - from: Campaign
+    to: Session
+    type: has_many
+    via: campaign_uuid
+    confidence: high
+  - from: Attempt
+    to: Session
+    type: belongs_to
+    via: session_uuid
+    confidence: high
+  - from: Session
+    to: Attempt
+    type: has_many
+    via: session_uuid
+    confidence: high
+    note: Bounded by attempts_allowed / success_attempts_allowed on the session.
+  - from: Transcript
+    to: Attempt
+    type: belongs_to
+    via: attempt_uuid
+    confidence: high
+  - from: Result
+    to: Session
+    type: belongs_to
+    via: session_uuid
+    confidence: high
+  - from: Result
+    to: Campaign
+    type: belongs_to
+    via: campaign_uuid
+    confidence: high
+    note: Denormalised second foreign key.
+  - from: Insight
+    to: Campaign
+    type: belongs_to
+    via: campaign_uuid query filter
+    confidence: medium
+    note: >-
+      Generated by campaigns_generate_insights and filtered by campaign_uuid in Tadeus' own
+      examples, but the Insight definition carries NO campaign_uuid field. The link is real
+      in behaviour and missing from the schema.
+  - from: Result
+    to: Template
+    type: conforms_to
+    via: output_json / output_schema
+    confidence: high
+    note: >-
+      Not a foreign key. Result.output_json is shaped by the Template's customer-supplied
+      output_schema, so the data model is partly customer-defined at runtime.
+  - from: CreditTransaction
+    to: Organisation
+    type: belongs_to
+    via: implicit account scope
+    confidence: medium
+    note: No explicit organisation field; scope is inferred from the API key.
+lifecycle_flow:
+  - Template (create, publish)
+  - Campaign (create against template, set access_type + max_sessions)
+  - invite / bulk-invite  OR  Session (create anonymous)
+  - Attempt (the voice conversation itself, agent-side)
+  - Transcript + Result (per session)
+  - generate-insights -> Insight (per campaign)
+  - export (csv / json / md / pdf / html)
+gaps:
+  - Insight has no campaign_uuid field despite being campaign-scoped in practice.
+  - >-
+    No Participant entity is exposed. Invitations take an email and a name, but there is no
+    addressable participant resource — deliberate, given the privacy posture, but it means
+    there is no way to action a data-subject request through the API.
+  - Mixed key strategy (uuid vs integer id) across the two clusters.
+  - No id prefixes and no expansion/embedding, so every traversal is an extra round trip.

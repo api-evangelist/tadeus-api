@@ -1,0 +1,89 @@
+generated: '2026-08-11'
+method: derived
+source: openapi/tadeus-api-integration-openapi.json
+enriched_by:
+  - live unauthenticated probes of app.tadeus.net (2026-08-11)
+format: drf-detail
+rfc9457: false
+content_type: application/json
+summary: >-
+  Tadeus publishes NO error responses at all. Across 47 operations the Swagger document
+  declares only success codes — 200, 201 and 204 — and zero 4xx or 5xx responses. There is
+  no error reference page on the site either. Everything below was observed live against
+  the running API rather than read from the contract.
+spec_coverage:
+  operations_total: 47
+  operations_with_any_4xx: 0
+  operations_with_any_5xx: 0
+  declared_status_codes: ['200', '201', '204']
+  error_schema_defined: false
+envelope:
+  shape:
+    detail: string
+  example: '{"detail":"Authentication credentials were not provided."}'
+  fields:
+    - name: detail
+      type: string
+      description: Human-readable message. No machine-readable code accompanies it.
+  note: >-
+    This is the Django REST Framework default exception envelope. Field-level validation
+    errors in DRF use a different shape (a map of field name to array of messages), so a
+    consumer must handle at least two envelopes, neither of which is documented.
+problem_types:
+  - status: 403
+    envelope_detail: Authentication credentials were not provided.
+    method: probed
+    observed_at: https://app.tadeus.net/api/integration/v1/organisation/
+    meaning: >-
+      No X-API-KEY-ID / X-API-SECRET headers were sent. Note Tadeus returns 403, not the
+      401 that RFC 9110 specifies for a missing credential, and sends no WWW-Authenticate
+      header.
+    remediation: >-
+      Send both X-API-KEY-ID and X-API-SECRET headers, generated in the Tadeus dashboard
+      under API access.
+  - status: 401
+    envelope_detail: >-
+      Authentication required. Pass 'api_key_id' and 'api_secret' in query parameters or
+      headers.
+    method: probed
+    observed_at: https://app.tadeus.net/mcp
+    meaning: >-
+      The MCP server's own auth challenge. Different status code AND different message
+      wording from the REST surface for the same underlying condition.
+    remediation: Supply api_key_id and api_secret to the MCP server.
+  - status: 404
+    envelope_detail: not_found
+    method: probed
+    observed_at: https://tadeus.net/api/integration/v1/organisation/
+    body: '{"ok":false,"error":"not_found"}'
+    meaning: >-
+      A THIRD error envelope, returned by the marketing host. Relevant because Tadeus'
+      own published code examples set BASE_URL to https://tadeus.net/api/integration/v1,
+      which is the wrong host — the real base is https://app.tadeus.net/api/integration/v1
+      per the spec's own `host` field. A developer copying the documented example gets this
+      shape, which shares no field with the API's real error envelope.
+undocumented_but_expected:
+  note: >-
+    NOT ASSERTED as observed — listed only as the gap a consumer must discover by trial.
+    Tadeus documents none of these.
+  conditions:
+  - 400 validation failure on templates_create / campaigns_create / sessions_create
+  - 404 on any {uuid} read/update/delete for an unknown resource
+  - 429 if any rate limiting exists (none documented, none observed)
+  - 402 or 400 when the credit balance is exhausted (billing_balance exists, so a
+    quota-exceeded condition must exist, but no error is published for it)
+provider_gaps:
+  - >-
+    Declare 4xx responses on every operation. Zero error responses in a 47-operation spec
+    means an agent generating a client from the contract has no failure handling at all.
+  - >-
+    Publish an error reference. There is no error page anywhere on tadeus.net.
+  - >-
+    Add a stable machine-readable error code alongside `detail`, or adopt RFC 9457
+    application/problem+json.
+  - >-
+    Return 401 with a WWW-Authenticate header rather than 403 for a missing credential,
+    and align the REST and MCP challenge wording.
+  - >-
+    Fix the BASE_URL in the published Python and cURL examples: tadeus.net is not the API
+    host, app.tadeus.net is.

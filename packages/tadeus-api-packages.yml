@@ -1,0 +1,68 @@
+generated: '2026-08-11'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, and the Tadeus developer pages
+  (https://tadeus.net/api-examples, https://tadeus.net/mcp)
+package_count: 0
+official_sdk_count: 0
+packages: []
+note: >-
+  Tadeus ships NO first-party client library in any language. No package exists under
+  `tadeus`, `tadeus-api`, `tadeus-sdk`, `tadeus-client` or `@tadeus/sdk` on npm or PyPI, an
+  npm full-text search for "tadeus" returns no Tadeus-authored package, and no GitHub
+  organisation exists at github.com/tadeus, /tadeus-ai or /tadeusnet. The site has no
+  GitHub link at all — the only external links in the footer are LinkedIn and the parent
+  brand openhunts.com.
+  NO `SDKs` pointer and NO `Packages` pointer are emitted in apis.yml: an artifact recording
+  the absence of SDKs must not be credited as a published SDK surface.
+what_is_published_instead:
+  approach: raw-http-with-third-party-libraries
+  source: https://tadeus.net/api-examples
+  quote: '"pip install requests python-dotenv"'
+  detail: >-
+    The official Python walkthrough uses the third-party `requests` and `python-dotenv`
+    packages and hand-rolled dictionaries against the REST endpoints. A parallel cURL tab is
+    provided for every step. Both are genuinely usable, but neither is a Tadeus-maintained
+    client.
+  dependencies_recommended:
+    - language: python
+      registry: pypi
+      name: requests
+      official: false
+      first_party: false
+      version: null
+      published: null
+      note: >-
+        Third-party HTTP library recommended by Tadeus' own docs; not a Tadeus artifact, so
+        no registry version is recorded against Tadeus here.
+    - language: python
+      registry: pypi
+      name: python-dotenv
+      official: false
+      first_party: false
+      version: null
+      published: null
+      note: Third-party; recommended for holding the key pair in a local .env file.
+registries_checked:
+  - registry: npm
+    queries: [tadeus, tadeus-api, tadeus-sdk, tadeus-client, '@tadeus/sdk', 'text search: tadeus']
+    result: no first-party package
+    status: 404 on every direct name lookup
+  - registry: pypi
+    queries: [tadeus, tadeus-api, tadeus-sdk, tadeus-client]
+    result: no first-party package
+    status: 404 on every direct name lookup
+  - registry: github
+    queries: [github.com/tadeus, github.com/tadeus-ai, github.com/tadeusnet]
+    result: no organisation
+    status: 404
+decay_signal:
+  applicable: false
+  reason: >-
+    No first-party package exists, so there is no release date to read against the API. The
+    absence is the finding, not staleness.
+provider_gap: >-
+  A one-file Python client and a TypeScript client would cost little and would materially
+  change adoption for an API whose buyer is an HCM/payroll platform engineering team. The
+  MCP server partly substitutes for this on the agent side, but not for the "deep product
+  embed" use case Tadeus itself names as the REST API's purpose.
