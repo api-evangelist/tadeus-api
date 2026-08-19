@@ -1,0 +1,4579 @@
+{
+  "item": [
+    {
+      "id": "41a741c6-ea89-4d8c-8774-7d64db7ec5db",
+      "name": "attempts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a73dde4-2b87-46e4-a64f-4ec9e7154f6e",
+          "name": "attempts list",
+          "request": {
+            "name": "attempts list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attempts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e9ee972-30fb-4b96-9e06-23b728ee2f42",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attempts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"session_uuid\": \"fe6a147e-5fce-bc72-f909-80c467621faf\",\n    \"uuid\": \"263a5e69-928e-9cea-2920-49acc66c064f\",\n    \"attempt_number\": 7596,\n    \"state\": \"in_progress\",\n    \"success\": true,\n    \"start_ts\": \"2006-07-11T08:14:23.226Z\",\n    \"end_ts\": \"1951-11-24T20:35:56.424Z\",\n    \"finish_reason\": \"string\",\n    \"sentiment\": 9776.414350939598,\n    \"confidence\": 3317.8253480174103,\n    \"engagement\": 5564.294055422861,\n    \"created_at\": \"1956-09-11T02:40:40.585Z\"\n  },\n  {\n    \"session_uuid\": \"af79a748-ea35-23e3-3878-447f21e08562\",\n    \"uuid\": \"9adb81e8-6bd1-589b-6048-1b6cfd582346\",\n    \"attempt_number\": 4618,\n    \"state\": \"succeeded\",\n    \"success\": true,\n    \"start_ts\": \"1984-11-07T09:50:13.570Z\",\n    \"end_ts\": \"1947-04-23T20:59:37.019Z\",\n    \"finish_reason\": \"string\",\n    \"sentiment\": 2478.8993628487697,\n    \"confidence\": 9851.584307920995,\n    \"engagement\": 132.79132335027643,\n    \"created_at\": \"1986-05-28T16:05:57.877Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83a6d72d-ec2b-42ce-bf7b-bb31ee8d97ef",
+          "name": "attempts read",
+          "request": {
+            "name": "attempts read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "attempts",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27188c19-aa27-48a4-941e-82df681b9b89",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "attempts",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"session_uuid\": \"2c6cbcf7-c7c2-e9c1-ce28-fa2c4d96780f\",\n  \"uuid\": \"247721fa-830e-b013-feea-c330a2f7d99f\",\n  \"attempt_number\": 2752,\n  \"state\": \"failed\",\n  \"success\": true,\n  \"start_ts\": \"1973-02-21T06:02:09.750Z\",\n  \"end_ts\": \"1965-01-27T21:08:01.340Z\",\n  \"finish_reason\": \"string\",\n  \"sentiment\": 3874.7714188582995,\n  \"confidence\": 6759.271583278589,\n  \"engagement\": 1396.7590233021187,\n  \"created_at\": \"1949-08-18T16:59:36.395Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "835e9005-4130-41c2-91c7-d40b2ae5800e",
+      "name": "billing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "097e0034-d6e4-43d7-9a91-de2827eaca10",
+          "name": "billing balance list",
+          "request": {
+            "name": "billing balance list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billing",
+                "balance",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d0949df-5578-48f4-8b72-0922117b889f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "balance",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"balance\": 823623424,\n    \"total_deposited\": \"string\",\n    \"updated_at\": \"1986-07-01T05:20:54.552Z\"\n  },\n  {\n    \"balance\": -499373311,\n    \"total_deposited\": \"string\",\n    \"updated_at\": \"1983-04-28T12:17:37.659Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47d0caf6-3f4d-41eb-a422-f1b910028c04",
+          "name": "billing balance read",
+          "request": {
+            "name": "billing balance read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billing",
+                "balance",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e275eb8c-db83-449e-9171-5fbe978e187d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "balance",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"balance\": 562720479,\n  \"total_deposited\": \"string\",\n  \"updated_at\": \"1992-02-07T05:53:58.321Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ed072bc-bbca-4a10-8fc4-30ed1080e3de",
+          "name": "billing payments list",
+          "request": {
+            "name": "billing payments list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billing",
+                "payments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02505053-c12c-4676-9b2f-772233f32f46",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "payments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": -1887154287,\n    \"id\": \"61168524-e6c3-3eff-2734-2d7c061f0ec7\",\n    \"source\": \"refund\",\n    \"reason\": \"string\",\n    \"timestamp\": \"1961-04-03T09:36:35.578Z\",\n    \"balance_after\": -1712741111\n  },\n  {\n    \"amount\": -495592759,\n    \"id\": \"e379ebd7-4bdf-8fec-c148-fbd8a9075233\",\n    \"source\": \"adjustment\",\n    \"reason\": \"string\",\n    \"timestamp\": \"1998-11-09T15:45:57.909Z\",\n    \"balance_after\": 313893233\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3285af8-edbd-40c0-ba4d-ba127bf84021",
+          "name": "billing payments read",
+          "request": {
+            "name": "billing payments read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billing",
+                "payments",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4dc3350-b28f-4ef4-9f35-6670c9e8de3c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "payments",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": -1922928371,\n  \"id\": \"e2471ae9-7115-e5bc-c0bc-4e50ab715dff\",\n  \"source\": \"topup\",\n  \"reason\": \"string\",\n  \"timestamp\": \"2004-11-01T13:41:25.495Z\",\n  \"balance_after\": -1992487311\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1789cb2-78f7-4517-bc8a-89f8e9cac3b5",
+          "name": "billing transactions list",
+          "request": {
+            "name": "billing transactions list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billing",
+                "transactions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0e6425f-0089-4eb6-9176-86149d5be26b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "transactions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": -1887154287,\n    \"id\": \"61168524-e6c3-3eff-2734-2d7c061f0ec7\",\n    \"source\": \"refund\",\n    \"reason\": \"string\",\n    \"timestamp\": \"1961-04-03T09:36:35.578Z\",\n    \"balance_after\": -1712741111\n  },\n  {\n    \"amount\": -495592759,\n    \"id\": \"e379ebd7-4bdf-8fec-c148-fbd8a9075233\",\n    \"source\": \"adjustment\",\n    \"reason\": \"string\",\n    \"timestamp\": \"1998-11-09T15:45:57.909Z\",\n    \"balance_after\": 313893233\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90758ae3-3ce1-4759-923d-72896c5755ff",
+          "name": "billing transactions read",
+          "request": {
+            "name": "billing transactions read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "billing",
+                "transactions",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45a7a2fd-93fa-4da9-a410-3d81711fbbf8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "billing",
+                    "transactions",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": -1922928371,\n  \"id\": \"e2471ae9-7115-e5bc-c0bc-4e50ab715dff\",\n  \"source\": \"topup\",\n  \"reason\": \"string\",\n  \"timestamp\": \"2004-11-01T13:41:25.495Z\",\n  \"balance_after\": -1992487311\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "03b0c2af-acae-405f-adfd-0d190102edec",
+      "name": "campaigns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5988890f-6908-4bff-b2be-2bc3fa96d284",
+          "name": "campaigns list",
+          "request": {
+            "name": "campaigns list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f1fa2b0-f3e5-4b6c-b6b6-4fa718a3e0a6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"template_uuid\": \"c1f4fe76-944f-5771-2593-b1cb0a73f232\",\n    \"uuid\": \"c7539f95-3f71-d287-ac0e-c11ea0a13f75\",\n    \"start_at\": \"1993-04-03T03:20:53.957Z\",\n    \"end_at\": \"1994-11-26T05:21:40.172Z\",\n    \"settings\": {},\n    \"active\": true,\n    \"type\": \"survey\",\n    \"access_type\": \"invite_only\",\n    \"max_sessions\": 582977497,\n    \"created_at\": \"1965-02-15T00:35:12.517Z\"\n  },\n  {\n    \"name\": \"string\",\n    \"template_uuid\": \"29c48639-f017-a3cf-27a7-629465824cde\",\n    \"uuid\": \"69078edb-7c05-1045-5c59-49930a765b05\",\n    \"start_at\": \"2002-09-22T03:56:46.776Z\",\n    \"end_at\": \"1951-10-24T23:56:19.403Z\",\n    \"settings\": {},\n    \"active\": true,\n    \"type\": \"survey\",\n    \"access_type\": \"invite_only\",\n    \"max_sessions\": -1618137582,\n    \"created_at\": \"1960-03-07T11:53:30.053Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9815bef2-9c66-4272-9707-43d7b2215fca",
+          "name": "campaigns create",
+          "request": {
+            "name": "campaigns create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ce06757-529e-411a-92c4-361477506b9f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ac127ec-1488-486d-8aae-c65009326c78",
+          "name": "campaigns read",
+          "request": {
+            "name": "campaigns read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdd848d3-fb58-4480-abcc-12e7ec12192f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db655915-f5e8-4eec-a653-8cfc12026079",
+          "name": "campaigns update",
+          "request": {
+            "name": "campaigns update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0884f96b-aef2-4b02-8f96-3509b782cf29",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7774ad0-a071-44ad-99ea-470a4779233b",
+          "name": "campaigns partial update",
+          "request": {
+            "name": "campaigns partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4e7bba1-55e6-4eb0-bf55-ef3309157263",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4746349e-b0d2-43fc-8aca-ba0dc46c8558",
+          "name": "campaigns delete",
+          "request": {
+            "name": "campaigns delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a49881bd-9b2f-4d02-bf2e-6ac87fb635fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08a304df-2979-486b-ad84-2cf5d9256d0d",
+          "name": "campaigns bulk invite",
+          "request": {
+            "name": "campaigns bulk invite",
+            "description": {
+              "content": "Invite several participants at once.\nPOST /api/integration/v1/campaigns/{uuid}/bulk-invite/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                "bulk-invite",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb2280aa-0add-48b0-a479-a63380b21429",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    "bulk-invite",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "612e3334-dd22-43ac-a101-eb8505a4a9ea",
+          "name": "campaigns generate insights",
+          "request": {
+            "name": "campaigns generate insights",
+            "description": {
+              "content": "Trigger insights generation for this campaign.\nPOST /api/integration/v1/campaigns/{uuid}/generate-insights/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                "generate-insights",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80cdddb9-40b1-4146-bcb7-135fc767f084",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    "generate-insights",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e752bd1-7c5d-4d75-9b85-cc31727c0a01",
+          "name": "campaigns invite",
+          "request": {
+            "name": "campaigns invite",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "campaigns",
+                ":uuid",
+                "invite",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d23fa1a-68fd-4d3b-b1c7-28db005e970b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "campaigns",
+                    ":uuid",
+                    "invite",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"template_uuid\": \"<uuid>\",\n  \"uuid\": \"7d6ca225-b53d-4d2e-e814-f5cc91102e91\",\n  \"start_at\": \"<dateTime>\",\n  \"end_at\": \"<dateTime>\",\n  \"settings\": \"<object>\",\n  \"active\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"access_type\": \"<string>\",\n  \"max_sessions\": \"<integer>\",\n  \"created_at\": \"1961-04-08T17:09:04.447Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "079afa6b-721d-427e-9470-f6dd7f921d94",
+      "name": "insights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b582056d-c3c1-4b3d-830b-45c0caccc61f",
+          "name": "insights list",
+          "request": {
+            "name": "insights list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a394d99f-4d05-4198-a222-3fad1d1111d1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"uuid\": \"fda690e3-fcbe-378e-c86d-44ae2ed2a4dc\",\n    \"created_at\": \"1973-07-21T01:15:30.626Z\"\n  },\n  {\n    \"uuid\": \"f7b69624-0053-67d9-562a-21ba6d128eca\",\n    \"created_at\": \"2022-12-03T07:16:22.294Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "975e264c-bd44-40ab-b677-236a90a69756",
+          "name": "insights create",
+          "request": {
+            "name": "insights create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "791a981e-b42b-4e9e-b8d2-2276d27c95e9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cce2b03-1c76-46cb-9c3c-293b7b7f2515",
+          "name": "insights read",
+          "request": {
+            "name": "insights read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c066264d-8669-4d59-8ffa-fa2d653af1cd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c2b6dce-d443-47de-8291-5151401d7c29",
+          "name": "insights update",
+          "request": {
+            "name": "insights update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a0c4a83-3669-41cf-9588-9a366d738ec0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b07c14a-f4f0-48e7-85be-670cecc333e9",
+          "name": "insights partial update",
+          "request": {
+            "name": "insights partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abea7071-48c6-4973-9221-4443d5d41395",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1ae32f3-7b7d-4cc5-aa0c-cd715dd74c79",
+          "name": "insights delete",
+          "request": {
+            "name": "insights delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4d0d24a-389f-4262-b171-74244f41c335",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11e510f2-26ee-41d3-85b6-6a1e96f86381",
+          "name": "insights html",
+          "request": {
+            "name": "insights html",
+            "description": {
+              "content": "Return the insight as a rendered HTML document.\nGET /api/integration/v1/insights/{uuid}/html/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                "html",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f7570c0-53ba-44f8-b09e-2d892ba67a4c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    "html",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4502d4c-9953-4b25-87e2-e4e51793f493",
+          "name": "insights lexical",
+          "request": {
+            "name": "insights lexical",
+            "description": {
+              "content": "Return the insight content converted to Lexical format.\nGET /api/integration/v1/insights/{uuid}/lexical/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                "lexical",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed43159f-d022-4190-95d3-0a2f8107e78f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    "lexical",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ba1774a-93a1-4643-809e-97eb7de158b6",
+          "name": "insights markdown",
+          "request": {
+            "name": "insights markdown",
+            "description": {
+              "content": "Return the insight content as a Markdown document.\nGET /api/integration/v1/insights/{uuid}/md/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                "md",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e58bb90-817f-4781-a7d4-5208dbcce771",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    "md",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fcc672c-fea3-40ba-bfcf-da2b57cebd3a",
+          "name": "insights pdf",
+          "request": {
+            "name": "insights pdf",
+            "description": {
+              "content": "Return the insight as a downloadable PDF.\nGET /api/integration/v1/insights/{uuid}/pdf/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insights",
+                ":uuid",
+                "pdf",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28fddabf-f4c8-4db8-919e-ab8e3e16df1a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insights",
+                    ":uuid",
+                    "pdf",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": \"<string>\",\n  \"uuid\": \"<uuid>\",\n  \"executive_summary\": \"<string>\",\n  \"output_json_summary\": \"<object>\",\n  \"created_at\": \"1981-11-05T00:35:50.682Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7578e671-2804-49ee-8c4a-202f0d3ee8ad",
+      "name": "organisation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4424f813-7b84-4041-98ac-5a815d2b2991",
+          "name": "organisation list",
+          "request": {
+            "name": "organisation list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organisation",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58a97613-c085-4a16-803d-515e0afd92aa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organisation",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"uuid\": \"659fce35-6d5d-7cb5-ee2c-ac8e9cfce810\",\n    \"logo\": \"https://UulzfSPnNeKGz.tzylXI2243CewuVw,4U6As+QBfuPLeQw4z\",\n    \"address\": \"string\",\n    \"active\": false,\n    \"created_at\": \"1991-07-02T00:04:44.153Z\"\n  },\n  {\n    \"name\": \"string\",\n    \"uuid\": \"628783b9-5c00-2a29-d766-62d30d4775ab\",\n    \"logo\": \"https://fIVDFsuhAAXQEUWythj.nfujONQs\",\n    \"address\": \"string\",\n    \"active\": true,\n    \"created_at\": \"1978-01-14T20:04:14.870Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e49d283-c212-4360-9a4e-d68a789378ec",
+          "name": "organisation read",
+          "request": {
+            "name": "organisation read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organisation",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc5a8c18-5066-455a-84ea-d9bb3387130d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organisation",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"uuid\": \"af21be54-5a35-d8b6-50df-80813d349e7b\",\n  \"logo\": \"http://ZaqOdjEZwefcinvDqgtFjhLmttVFADDd.qccwbxU\",\n  \"address\": \"string\",\n  \"active\": false,\n  \"created_at\": \"2013-04-21T03:32:23.225Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8ef0c18f-26dc-47f1-8565-43a93bd8ea6e",
+      "name": "results",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9eff2994-68c3-427b-b8b9-a731ec512554",
+          "name": "results list",
+          "request": {
+            "name": "results list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "results",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2e94854-998e-4e4d-bd75-e08e63b6c643",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "results",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5338,\n    \"session_uuid\": \"caee5a89-fa38-0b4d-1e28-6828cb9f82dc\",\n    \"campaign_uuid\": \"9ea557b8-362c-1b39-725c-067d654d137a\",\n    \"short_summary\": \"string\",\n    \"summary_text\": \"string\",\n    \"output_json\": {},\n    \"confidence\": 7658.063613650465,\n    \"relevance\": 2672.289263400054,\n    \"sentiment\": 1550.95804656743,\n    \"engagement\": 5101.527259169731,\n    \"validated\": false,\n    \"created_at\": \"2004-06-24T07:57:43.078Z\"\n  },\n  {\n    \"id\": 4404,\n    \"session_uuid\": \"533a55fd-961f-5afd-398d-6653fae79433\",\n    \"campaign_uuid\": \"b346042a-66a3-bccd-37c0-b345bf0c7c08\",\n    \"short_summary\": \"string\",\n    \"summary_text\": \"string\",\n    \"output_json\": {},\n    \"confidence\": 136.31973485876526,\n    \"relevance\": 3841.214938835645,\n    \"sentiment\": 4210.319529331266,\n    \"engagement\": 6291.4945877694,\n    \"validated\": false,\n    \"created_at\": \"2022-09-22T16:26:04.834Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5af9cb73-24f0-4119-8661-e6bcb5552604",
+          "name": "results export export csv",
+          "request": {
+            "name": "results export export csv",
+            "description": {
+              "content": "Download all results as a CSV file, with output_json fields flattened as columns.\nGET /api/integration/v1/results/export/csv/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "results",
+                "export",
+                "csv",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fed7acff-ea33-480f-af47-3f87121d585b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "results",
+                    "export",
+                    "csv",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5338,\n    \"session_uuid\": \"caee5a89-fa38-0b4d-1e28-6828cb9f82dc\",\n    \"campaign_uuid\": \"9ea557b8-362c-1b39-725c-067d654d137a\",\n    \"short_summary\": \"string\",\n    \"summary_text\": \"string\",\n    \"output_json\": {},\n    \"confidence\": 7658.063613650465,\n    \"relevance\": 2672.289263400054,\n    \"sentiment\": 1550.95804656743,\n    \"engagement\": 5101.527259169731,\n    \"validated\": false,\n    \"created_at\": \"2004-06-24T07:57:43.078Z\"\n  },\n  {\n    \"id\": 4404,\n    \"session_uuid\": \"533a55fd-961f-5afd-398d-6653fae79433\",\n    \"campaign_uuid\": \"b346042a-66a3-bccd-37c0-b345bf0c7c08\",\n    \"short_summary\": \"string\",\n    \"summary_text\": \"string\",\n    \"output_json\": {},\n    \"confidence\": 136.31973485876526,\n    \"relevance\": 3841.214938835645,\n    \"sentiment\": 4210.319529331266,\n    \"engagement\": 6291.4945877694,\n    \"validated\": false,\n    \"created_at\": \"2022-09-22T16:26:04.834Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ef22ac6-e859-40ba-9a03-5cf5cedfa5df",
+          "name": "results export export json",
+          "request": {
+            "name": "results export export json",
+            "description": {
+              "content": "Download all results as a JSON file.\nGET /api/integration/v1/results/export/json/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "results",
+                "export",
+                "json",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "770ff1e1-27de-4259-a884-c507c96e8d24",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "results",
+                    "export",
+                    "json",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5338,\n    \"session_uuid\": \"caee5a89-fa38-0b4d-1e28-6828cb9f82dc\",\n    \"campaign_uuid\": \"9ea557b8-362c-1b39-725c-067d654d137a\",\n    \"short_summary\": \"string\",\n    \"summary_text\": \"string\",\n    \"output_json\": {},\n    \"confidence\": 7658.063613650465,\n    \"relevance\": 2672.289263400054,\n    \"sentiment\": 1550.95804656743,\n    \"engagement\": 5101.527259169731,\n    \"validated\": false,\n    \"created_at\": \"2004-06-24T07:57:43.078Z\"\n  },\n  {\n    \"id\": 4404,\n    \"session_uuid\": \"533a55fd-961f-5afd-398d-6653fae79433\",\n    \"campaign_uuid\": \"b346042a-66a3-bccd-37c0-b345bf0c7c08\",\n    \"short_summary\": \"string\",\n    \"summary_text\": \"string\",\n    \"output_json\": {},\n    \"confidence\": 136.31973485876526,\n    \"relevance\": 3841.214938835645,\n    \"sentiment\": 4210.319529331266,\n    \"engagement\": 6291.4945877694,\n    \"validated\": false,\n    \"created_at\": \"2022-09-22T16:26:04.834Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab0d6ea1-5534-4552-8b91-9afaf80bdb08",
+          "name": "results read",
+          "request": {
+            "name": "results read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "results",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0ae739a-7964-441f-9ccc-87c14b79aecf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "results",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6872,\n  \"session_uuid\": \"fb39e820-3ac8-6047-3931-fdb49ac8270d\",\n  \"campaign_uuid\": \"d2c0f11d-3c95-afd4-8eca-d1470c5ed87a\",\n  \"short_summary\": \"string\",\n  \"summary_text\": \"string\",\n  \"output_json\": {},\n  \"confidence\": 3207.578516980454,\n  \"relevance\": 3935.5806135130388,\n  \"sentiment\": 9271.74825864295,\n  \"engagement\": 3289.4170173764346,\n  \"validated\": false,\n  \"created_at\": \"1964-01-25T16:09:24.369Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cb84749d-3b12-4f69-8905-e56989a2c5ff",
+      "name": "sessions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ebf8788f-0eed-458a-814e-9448eb8c4dad",
+          "name": "sessions list",
+          "request": {
+            "name": "sessions list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5da00c3-2546-4f24-bf76-29eaed73f26d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"campaign_uuid\": \"c49bb304-2125-8dd7-a9d9-658a7340a63d\",\n    \"uuid\": \"22366f1d-d77a-f4e4-a3fd-2edd648726f1\",\n    \"status\": \"processing\",\n    \"started_at\": \"1993-05-17T06:09:29.023Z\",\n    \"last_activity_at\": \"1970-07-12T15:23:26.736Z\",\n    \"attempts_allowed\": 15111,\n    \"attempts_count\": 6391,\n    \"success_attempts_allowed\": 30396,\n    \"success_attempts\": 9547,\n    \"closed\": true,\n    \"email_capture_mode\": \"before_required\",\n    \"created_at\": \"1980-07-28T09:43:16.662Z\"\n  },\n  {\n    \"campaign_uuid\": \"c3eece74-4c3a-20ec-e6ff-422939590791\",\n    \"uuid\": \"b967867d-7de7-83fc-3f3d-ca4084688127\",\n    \"status\": \"completed\",\n    \"started_at\": \"1979-05-28T21:50:51.670Z\",\n    \"last_activity_at\": \"1970-05-04T14:22:11.205Z\",\n    \"attempts_allowed\": 23754,\n    \"attempts_count\": 7289,\n    \"success_attempts_allowed\": 2986,\n    \"success_attempts\": 2447,\n    \"closed\": false,\n    \"email_capture_mode\": \"before_optional\",\n    \"created_at\": \"2002-07-15T01:19:55.340Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c2e3223-35b8-4d95-b3c4-c0eaa5e66b8f",
+          "name": "sessions create",
+          "request": {
+            "name": "sessions create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"status\": \"<string>\",\n  \"attempts_allowed\": \"<integer>\",\n  \"success_attempts_allowed\": \"<integer>\",\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c4848360-712a-43bc-b410-1d34105b6ae1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"uuid\": \"8ce06c09-4955-0fe4-45ca-c8fdbdd82f1c\",\n  \"status\": \"<string>\",\n  \"started_at\": \"1977-05-29T06:02:27.637Z\",\n  \"last_activity_at\": \"1952-03-10T23:05:06.699Z\",\n  \"attempts_allowed\": \"<integer>\",\n  \"attempts_count\": 4144,\n  \"success_attempts_allowed\": \"<integer>\",\n  \"success_attempts\": 5257,\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\",\n  \"created_at\": \"1975-05-18T14:00:47.145Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39b2086d-3c0e-470a-bdb6-8d5b8d374146",
+          "name": "sessions read",
+          "request": {
+            "name": "sessions read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa0951de-3924-4432-b78e-8d4aa0b2989c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"uuid\": \"8ce06c09-4955-0fe4-45ca-c8fdbdd82f1c\",\n  \"status\": \"<string>\",\n  \"started_at\": \"1977-05-29T06:02:27.637Z\",\n  \"last_activity_at\": \"1952-03-10T23:05:06.699Z\",\n  \"attempts_allowed\": \"<integer>\",\n  \"attempts_count\": 4144,\n  \"success_attempts_allowed\": \"<integer>\",\n  \"success_attempts\": 5257,\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\",\n  \"created_at\": \"1975-05-18T14:00:47.145Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8427855a-f8df-4124-9644-70afdb978657",
+          "name": "sessions update",
+          "request": {
+            "name": "sessions update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"status\": \"<string>\",\n  \"attempts_allowed\": \"<integer>\",\n  \"success_attempts_allowed\": \"<integer>\",\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ac335af-88e4-406e-9baa-0e02542ef60a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"uuid\": \"8ce06c09-4955-0fe4-45ca-c8fdbdd82f1c\",\n  \"status\": \"<string>\",\n  \"started_at\": \"1977-05-29T06:02:27.637Z\",\n  \"last_activity_at\": \"1952-03-10T23:05:06.699Z\",\n  \"attempts_allowed\": \"<integer>\",\n  \"attempts_count\": 4144,\n  \"success_attempts_allowed\": \"<integer>\",\n  \"success_attempts\": 5257,\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\",\n  \"created_at\": \"1975-05-18T14:00:47.145Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78f17ced-9fb2-4b54-b6ce-6e7bf9c21202",
+          "name": "sessions partial update",
+          "request": {
+            "name": "sessions partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"status\": \"<string>\",\n  \"attempts_allowed\": \"<integer>\",\n  \"success_attempts_allowed\": \"<integer>\",\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd0d2f1a-dcf9-4a72-ac46-4ada96f9b47a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"campaign_uuid\": \"<uuid>\",\n  \"uuid\": \"8ce06c09-4955-0fe4-45ca-c8fdbdd82f1c\",\n  \"status\": \"<string>\",\n  \"started_at\": \"1977-05-29T06:02:27.637Z\",\n  \"last_activity_at\": \"1952-03-10T23:05:06.699Z\",\n  \"attempts_allowed\": \"<integer>\",\n  \"attempts_count\": 4144,\n  \"success_attempts_allowed\": \"<integer>\",\n  \"success_attempts\": 5257,\n  \"closed\": \"<boolean>\",\n  \"email_capture_mode\": \"<string>\",\n  \"created_at\": \"1975-05-18T14:00:47.145Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27075f25-ccb3-426a-b5d5-0a2d939240be",
+          "name": "sessions delete",
+          "request": {
+            "name": "sessions delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sessions",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4431ee48-e3f2-41d4-aa01-63687f7c1c42",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sessions",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1c7cfbd9-788b-44fe-a106-721f286b7f04",
+      "name": "templates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "828dc48a-784b-4234-bf96-ff42413a35dc",
+          "name": "templates list",
+          "request": {
+            "name": "templates list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "adddf89a-5d6d-4f4a-ac05-9ea630f96ac7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"uuid\": \"7ff84262-4f94-f727-9fe2-04a2e62e2e0c\",\n    \"version\": 368404819,\n    \"interview_prompt\": \"string\",\n    \"summary_prompt\": \"string\",\n    \"insights_prompt\": \"string\",\n    \"output_schema\": {},\n    \"status\": \"archived\",\n    \"created_at\": \"1958-03-25T01:13:33.628Z\",\n    \"updated_at\": \"1966-05-17T17:08:51.503Z\",\n    \"campaigns\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"uuid\": \"62c038db-5cf2-e9d5-f3be-1a2adbb82794\",\n    \"version\": 1743541153,\n    \"interview_prompt\": \"string\",\n    \"summary_prompt\": \"string\",\n    \"insights_prompt\": \"string\",\n    \"output_schema\": {},\n    \"status\": \"published\",\n    \"created_at\": \"2009-07-18T02:35:14.057Z\",\n    \"updated_at\": \"1964-02-09T17:20:11.595Z\",\n    \"campaigns\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ca7c0a9-e079-44fe-8441-adbc4ea22a7e",
+          "name": "templates create",
+          "request": {
+            "name": "templates create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "68509987-d4ab-4f30-a71a-92ad740fa6ae",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"uuid\": \"20f96365-896f-cfac-d3d0-7d0590381e0b\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"1973-12-10T17:00:18.407Z\",\n  \"updated_at\": \"1959-05-11T17:19:06.899Z\",\n  \"campaigns\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "266d5f9a-5399-4a7b-8206-626a77cdcebb",
+          "name": "templates read",
+          "request": {
+            "name": "templates read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ed4562c-d812-4493-89eb-beead4112276",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"uuid\": \"20f96365-896f-cfac-d3d0-7d0590381e0b\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"1973-12-10T17:00:18.407Z\",\n  \"updated_at\": \"1959-05-11T17:19:06.899Z\",\n  \"campaigns\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd3d431a-ef56-4b3d-99d5-4c7c31eb68d2",
+          "name": "templates update",
+          "request": {
+            "name": "templates update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66bc7c1b-c9bd-4fab-93b6-41e647c7cefa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"uuid\": \"20f96365-896f-cfac-d3d0-7d0590381e0b\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"1973-12-10T17:00:18.407Z\",\n  \"updated_at\": \"1959-05-11T17:19:06.899Z\",\n  \"campaigns\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78fab30c-0aba-4104-a410-12fbb6f18494",
+          "name": "templates partial update",
+          "request": {
+            "name": "templates partial update",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e814983-5341-406f-bb0c-ed704c463e27",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"uuid\": \"20f96365-896f-cfac-d3d0-7d0590381e0b\",\n  \"version\": \"<integer>\",\n  \"interview_prompt\": \"<string>\",\n  \"summary_prompt\": \"<string>\",\n  \"insights_prompt\": \"<string>\",\n  \"output_schema\": \"<object>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"1973-12-10T17:00:18.407Z\",\n  \"updated_at\": \"1959-05-11T17:19:06.899Z\",\n  \"campaigns\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1df4d23-2352-4f4a-b11f-69620e2afe2e",
+          "name": "templates delete",
+          "request": {
+            "name": "templates delete",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "templates",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f42cece5-1b74-4888-ad86-93f7db81fa65",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "templates",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "39c4bdb0-71d7-4101-a9eb-dad3d313eb1b",
+      "name": "transcripts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9189a73a-2cfb-4e56-ac0a-b26f84e1ceb3",
+          "name": "transcripts list",
+          "request": {
+            "name": "transcripts list",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transcripts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4d3566b-203d-40d6-bf28-6715726932bf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transcripts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"text\": \"string\",\n    \"uuid\": \"f19b40d8-7b3e-534c-3f72-ecc9561e9d89\",\n    \"attempt_uuid\": \"7cb0f9d7-dd5a-4e2d-9525-4acbd9f1d718\",\n    \"source\": \"string\",\n    \"created_at\": \"1951-09-02T11:17:00.612Z\"\n  },\n  {\n    \"text\": \"string\",\n    \"uuid\": \"97033cf6-f062-d7d1-ddae-fcc3829c397b\",\n    \"attempt_uuid\": \"a808c03e-1dee-208c-4218-a94bbe3f8c82\",\n    \"source\": \"str\",\n    \"created_at\": \"1995-07-13T06:15:57.034Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74e0ec69-be1d-48aa-b37f-8f3df5dc222b",
+          "name": "transcripts read",
+          "request": {
+            "name": "transcripts read",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transcripts",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6faada9b-ed46-440e-904b-fd8f9292741c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transcripts",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY-ID",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"string\",\n  \"uuid\": \"4d5150b5-a89b-dbc7-ea49-468da109929b\",\n  \"attempt_uuid\": \"fe8258f1-9617-15ef-88de-7000084c3a74\",\n  \"source\": \"string\",\n  \"created_at\": \"1990-06-19T17:07:16.904Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.tadeus.net/api/integration/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY-ID"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9a18fe37-6013-431c-81ae-337e8ac326a7",
+    "name": "Integration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API Integration endpoints documentation",
+      "type": "text/plain"
+    }
+  }
+}

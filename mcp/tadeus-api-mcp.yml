@@ -3,110 +3,99 @@ method: searched
 status: published
 source: https://tadeus.net/mcp
 name: Tadeus MCP
-description: >-
-  Tadeus publishes a first-party, hosted, remote MCP server that lets any MCP-compatible
-  agent (Claude and others) commission real voice interview campaigns with people, monitor
-  them, search the resulting transcripts, and pull back structured insight and per-response
-  quality signals as tool calls. Tadeus describes itself as "MCP-native" as of its
-  2026-07-14 general-availability release.
+description: Tadeus publishes a first-party, hosted, remote MCP server that lets any MCP-compatible agent
+  (Claude and others) commission real voice interview campaigns with people, monitor them, search the
+  resulting transcripts, and pull back structured insight and per-response quality signals as tool calls.
+  Tadeus describes itself as "MCP-native" as of its 2026-07-14 general-availability release.
 server:
   url: https://app.tadeus.net/mcp
   transport: http
   hosted: true
-  discovery_method: >-
-    The endpoint URL is NOT published on the marketing page or in the API reference; it was
-    found by probing the API host. POST of a JSON-RPC tools/list to https://app.tadeus.net/mcp
-    returns HTTP 401 with a Tadeus-specific JSON body, which is what confirms a real MCP
-    surface lives there rather than a catch-all.
+  discovery_method: The endpoint URL is NOT published on the marketing page or in the API reference; it
+    was found by probing the API host. POST of a JSON-RPC tools/list to https://app.tadeus.net/mcp returns
+    HTTP 401 with a Tadeus-specific JSON body, which is what confirms a real MCP surface lives there rather
+    than a catch-all.
 authentication:
   gated: true
   scheme: api-key-pair
   challenge_status: 401
-  challenge_body: >-
-    {"detail":"Authentication required. Pass 'api_key_id' and 'api_secret' in query
-    parameters or headers."}
+  challenge_body: '{"detail":"Authentication required. Pass ''api_key_id'' and ''api_secret'' in query
+    parameters or headers."}'
   credentials:
-    - api_key_id
-    - api_secret
-  note: >-
-    The MCP server reuses the same API key pair as the REST Integration API
-    (X-API-KEY-ID / X-API-SECRET), generated in the Tadeus dashboard under API access.
-    It does NOT implement the MCP OAuth authorization-server flow — /.well-known/
-    oauth-authorization-server and /.well-known/oauth-protected-resource both return 403,
-    so there is no anonymous metadata for an agent to bootstrap from.
+  - api_key_id
+  - api_secret
+  note: The MCP server reuses the same API key pair as the REST Integration API (X-API-KEY-ID / X-API-SECRET),
+    generated in the Tadeus dashboard under API access. It does NOT implement the MCP OAuth authorization-server
+    flow — /.well-known/ oauth-authorization-server and /.well-known/oauth-protected-resource both return
+    403, so there is no anonymous metadata for an agent to bootstrap from.
 tools:
   method: searched
   completeness: partial
   source: https://tadeus.net/mcp
-  note: >-
-    tools/list is auth-gated (401), so the live inputSchema for each tool could not be
-    read anonymously. The tools below are the ones Tadeus names verbatim in its own MCP
-    product page transcript. This is NOT asserted to be the complete tool set — the page
-    also describes commissioning campaigns and monitoring them in prose without naming the
-    tools that do it. Full schemas require authenticated introspection.
+  note: tools/list is auth-gated (401), so the live inputSchema for each tool could not be read anonymously.
+    The tools below are the ones Tadeus names verbatim in its own MCP product page transcript. This is
+    NOT asserted to be the complete tool set — the page also describes commissioning campaigns and monitoring
+    them in prose without naming the tools that do it. Full schemas require authenticated introspection.
   published:
-    - name: search_transcripts
-      description: >-
-        Search across the transcripts of completed interview sessions. Tadeus' own example
-        shows it scanning 412 sessions in one call.
-      source: https://tadeus.net/mcp
-    - name: list_campaign_insights
-      description: >-
-        Return the synthesised cross-session themes generated for a campaign. Tadeus' own
-        example shows it returning 3 themes.
-      source: https://tadeus.net/mcp
-    - name: get_campaign_stats
-      description: >-
-        Return campaign-level statistics, e.g. completion broken down by site.
-      source: https://tadeus.net/mcp
+  - name: search_transcripts
+    description: Search across the transcripts of completed interview sessions. Tadeus' own example shows
+      it scanning 412 sessions in one call.
+    source: https://tadeus.net/mcp
+  - name: list_campaign_insights
+    description: Return the synthesised cross-session themes generated for a campaign. Tadeus' own example
+      shows it returning 3 themes.
+    source: https://tadeus.net/mcp
+  - name: get_campaign_stats
+    description: Return campaign-level statistics, e.g. completion broken down by site.
+    source: https://tadeus.net/mcp
   described_but_unnamed:
-    - capability: launch an interview campaign
-      quote: >-
-        "your agent defines the question and the audience, and launches a Tadeus interview
-        campaign as a tool call"
-    - capability: monitor campaigns
-      quote: >-
-        "every compatible agent in your stack can commission interviews, monitor campaigns,
-        search transcripts, and pull structured insights as tool calls"
+  - capability: launch an interview campaign
+    quote: '"your agent defines the question and the audience, and launches a Tadeus interview campaign
+      as a tool call"'
+  - capability: monitor campaigns
+    quote: '"every compatible agent in your stack can commission interviews, monitor campaigns, search
+      transcripts, and pull structured insights as tool calls"'
 clients:
-  - Claude
-  - any MCP-compatible client
-positioning: >-
-  Tadeus treats MCP as the primary agent surface and REST as the deep-embed surface:
-  "The REST API is still there for deep product embeds. MCP is the fastest path from an
-  agent's question to a human answer."
+- Claude
+- any MCP-compatible client
+positioning: 'Tadeus treats MCP as the primary agent surface and REST as the deep-embed surface: "The
+  REST API is still there for deep product embeds. MCP is the fastest path from an agent''s question to
+  a human answer."'
 x-evidence:
   fetched: '2026-08-11'
   probes:
-    - url: https://app.tadeus.net/mcp
-      method: POST
-      body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
-      http_status: 401
-      content_type: application/json
-    - url: https://app.tadeus.net/mcp/
-      method: POST
-      http_status: 401
-    - url: https://app.tadeus.net/mcp/sse
-      method: POST
-      http_status: 401
-    - url: https://app.tadeus.net/api/mcp
-      method: POST
-      http_status: 404
-    - url: https://mcp.tadeus.net/
-      method: POST
-      http_status: 0
-      note: DNS does not resolve
-    - url: https://tadeus.net/mcp
-      method: GET
-      http_status: 200
-      note: marketing/product page, not the server
+  - url: https://app.tadeus.net/mcp
+    method: POST
+    body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    http_status: 401
+    content_type: application/json
+  - url: https://app.tadeus.net/mcp/
+    method: POST
+    http_status: 401
+  - url: https://app.tadeus.net/mcp/sse
+    method: POST
+    http_status: 401
+  - url: https://app.tadeus.net/api/mcp
+    method: POST
+    http_status: 404
+  - url: https://mcp.tadeus.net/
+    method: POST
+    http_status: 0
+    note: DNS does not resolve
+  - url: https://tadeus.net/mcp
+    method: GET
+    http_status: 200
+    note: marketing/product page, not the server
 provider_gaps:
-  - >-
-    The MCP endpoint URL is not documented anywhere on the public site or in the API
-    reference. An agent operator has to guess it.
-  - >-
-    No /.well-known/oauth-protected-resource, so MCP clients cannot discover the auth
-    requirement programmatically; they get a bare 401 with a prose instruction.
-  - >-
-    No public tool manifest, so the tool set and its input schemas cannot be evaluated
-    before signing up.
+- The MCP endpoint URL is not documented anywhere on the public site or in the API reference. An agent
+  operator has to guess it.
+- No /.well-known/oauth-protected-resource, so MCP clients cannot discover the auth requirement programmatically;
+  they get a bare 401 with a prose instruction.
+- No public tool manifest, so the tool set and its input schemas cannot be evaluated before signing up.
+deployment:
+  mode: remote
+  endpoint: https://app.tadeus.net/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
