@@ -44,34 +44,132 @@ tags:
   - Compliance
   - Employee Engagement
 apis:
-  - name: Tadeus Integration API
-    description: >-
-      REST API to create interview templates and campaigns, invite participants singly or in
-      bulk, create anonymous sessions, and retrieve transcripts, structured results, and
-      cross-session AI insights. 47 operations across templates, campaigns, sessions,
-      attempts, transcripts, results, insights, organisation and billing. API-key-pair auth
-      via X-API-KEY-ID and X-API-SECRET headers on every request.
-    humanURL: https://app.tadeus.net/api-examples
-    baseURL: https://app.tadeus.net/api/integration/v1
-    tags:
-      - Voice AI
-      - Research
-      - Interviews
-      - Workforce
-      - HR Tech
-      - Conversational AI
-      - Employee Experience
-    properties:
-      - type: OpenAPI
-        url: openapi/tadeus-api-integration-openapi.json
-      - type: OpenAPI
-        url: https://app.tadeus.net/api/integration/v1/swagger/?format=openapi
-      - type: Overlay
-        url: overlays/tadeus-api-integration-overlay.yaml
-      - type: Documentation
-        url: https://app.tadeus.net/api-examples
-      - type: Documentation
-        url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-attempts-api
+  name: Tadeus API Attempts API
+  description: The attempts API from Tadeus API — 2 operation(s) for attempts.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - attempts
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-attempts-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-billing-api
+  name: Tadeus API Billing API
+  description: The billing API from Tadeus API — 6 operation(s) for billing.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - billing
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-billing-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-campaigns-api
+  name: Tadeus API Campaigns API
+  description: The campaigns API from Tadeus API — 5 operation(s) for campaigns.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-campaigns-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-insights-api
+  name: Tadeus API Insights API
+  description: The insights API from Tadeus API — 6 operation(s) for insights.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - insights
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-insights-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-organisation-api
+  name: Tadeus API Organisation API
+  description: The organisation API from Tadeus API — 2 operation(s) for organisation.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - organisation
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-organisation-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-results-api
+  name: Tadeus API Results API
+  description: The results API from Tadeus API — 4 operation(s) for results.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - results
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-results-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-sessions-api
+  name: Tadeus API Sessions API
+  description: The sessions API from Tadeus API — 2 operation(s) for sessions.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-templates-api
+  name: Tadeus API Templates API
+  description: The templates API from Tadeus API — 2 operation(s) for templates.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - templates
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-templates-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
+- aid: tadeus-api:tadeus-api-transcripts-api
+  name: Tadeus API Transcripts API
+  description: The transcripts API from Tadeus API — 2 operation(s) for transcripts.
+  humanURL: https://app.tadeus.net/api-examples
+  baseURL: https://app.tadeus.net/api/integration/v1
+  tags:
+  - transcripts
+  properties:
+  - type: OpenAPI
+    url: openapi/tadeus-api-transcripts-api-openapi.yml
+  - type: Documentation
+    url: https://app.tadeus.net/api-examples
+  - type: Documentation
+    url: https://app.tadeus.net/api/integration/v1/swagger/
 maintainers:
   - FN: Tadeus
     url: mailto:contact@tadeus.net
@@ -81,6 +179,8 @@ generated:
   confidence: 95
   at: '2026-07-06T14:27:09.314Z'
 common:
+- type: Overlay
+  url: overlays/tadeus-api-integration-overlay.yaml
 - type: Website
   url: https://tadeus.net/
 - type: Documentation
