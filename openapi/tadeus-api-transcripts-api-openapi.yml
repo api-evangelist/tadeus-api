@@ -1,0 +1,89 @@
+openapi: 3.2.0
+info:
+  title: Integration Transcripts API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: transcripts
+paths:
+  /transcripts/:
+    parameters: []
+    get:
+      operationId: transcripts_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transcript'
+      tags:
+      - transcripts
+  /transcripts/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: transcripts_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transcript'
+      tags:
+      - transcripts
+components:
+  schemas:
+    Transcript:
+      required:
+      - text
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique transcript identifier
+          type: string
+          format: uuid
+        attempt_uuid:
+          title: Attempt uuid
+          type: string
+          format: uuid
+          readOnly: true
+        text:
+          title: Text
+          description: Transcript text content
+          type: string
+          minLength: 1
+        source:
+          title: Source
+          type: string
+          maxLength: 64
+          minLength: 1
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

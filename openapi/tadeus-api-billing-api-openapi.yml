@@ -1,0 +1,189 @@
+openapi: 3.2.0
+info:
+  title: Integration Billing API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: billing
+paths:
+  /billing/balance/:
+    parameters: []
+    get:
+      operationId: billing_balance_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreditBalance'
+      tags:
+      - billing
+  /billing/balance/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: billing_balance_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBalance'
+      tags:
+      - billing
+  /billing/payments/:
+    parameters: []
+    get:
+      operationId: billing_payments_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreditTransaction'
+      tags:
+      - billing
+  /billing/payments/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: billing_payments_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditTransaction'
+      tags:
+      - billing
+  /billing/transactions/:
+    parameters: []
+    get:
+      operationId: billing_transactions_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreditTransaction'
+      tags:
+      - billing
+  /billing/transactions/{id}/:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: billing_transactions_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditTransaction'
+      tags:
+      - billing
+components:
+  schemas:
+    CreditBalance:
+      type: object
+      properties:
+        balance:
+          title: Balance
+          description: Integer credits, 10 Credits = $0.01
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_deposited:
+          title: Total deposited
+          type: string
+          readOnly: true
+        updated_at:
+          title: Updated at
+          type: string
+          format: date-time
+          readOnly: true
+    CreditTransaction:
+      required:
+      - amount
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          format: uuid
+          readOnly: true
+        amount:
+          title: Amount
+          description: Positive = grant, negative = debit; 10 Credits = $0.01
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        source:
+          title: Source
+          type: string
+          enum:
+          - topup
+          - subscription
+          - usage
+          - refund
+          - admin
+          - adjustment
+        reason:
+          title: Reason
+          type: string
+          maxLength: 255
+        timestamp:
+          title: Timestamp
+          type: string
+          format: date-time
+        balance_after:
+          title: Balance after
+          description: Balance after this transaction
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

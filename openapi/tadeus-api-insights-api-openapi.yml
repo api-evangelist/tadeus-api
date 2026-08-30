@@ -1,0 +1,248 @@
+openapi: 3.2.0
+info:
+  title: Integration Insights API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: insights
+paths:
+  /insights/:
+    parameters: []
+    get:
+      operationId: insights_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InsightList'
+      tags:
+      - insights
+    post:
+      operationId: insights_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insight'
+        required: true
+  /insights/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: insights_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+    put:
+      operationId: insights_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insight'
+        required: true
+    patch:
+      operationId: insights_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Insight'
+        required: true
+    delete:
+      operationId: insights_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - insights
+  /insights/{uuid}/html/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: insights_html
+      description: 'Return the insight as a rendered HTML document.
+
+        GET /api/integration/v1/insights/{uuid}/html/'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+  /insights/{uuid}/lexical/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: insights_lexical
+      description: 'Return the insight content converted to Lexical format.
+
+        GET /api/integration/v1/insights/{uuid}/lexical/'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+  /insights/{uuid}/md/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: insights_markdown
+      description: 'Return the insight content as a Markdown document.
+
+        GET /api/integration/v1/insights/{uuid}/md/'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+  /insights/{uuid}/pdf/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: insights_pdf
+      description: 'Return the insight as a downloadable PDF.
+
+        GET /api/integration/v1/insights/{uuid}/pdf/'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Insight'
+      tags:
+      - insights
+components:
+  schemas:
+    InsightList:
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique insight identifier
+          type: string
+          format: uuid
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+    Insight:
+      required:
+      - content
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique insight identifier
+          type: string
+          format: uuid
+        executive_summary:
+          title: Executive summary
+          description: Plain text summary for list previews
+          type:
+          - string
+          - 'null'
+        content:
+          title: Content
+          description: The generated insight content
+          type: string
+          minLength: 1
+        output_json_summary:
+          title: Output json summary
+          description: Aggregated JSON summary based on output_schema
+          type: object
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

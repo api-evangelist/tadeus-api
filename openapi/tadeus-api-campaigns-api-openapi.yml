@@ -1,0 +1,270 @@
+openapi: 3.2.0
+info:
+  title: Integration Campaigns API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: campaigns
+paths:
+  /campaigns/:
+    parameters: []
+    get:
+      operationId: campaigns_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+    post:
+      operationId: campaigns_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+  /campaigns/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: campaigns_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+    put:
+      operationId: campaigns_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+    patch:
+      operationId: campaigns_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+    delete:
+      operationId: campaigns_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - campaigns
+  /campaigns/{uuid}/bulk-invite/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: campaigns_bulk_invite
+      description: 'Invite several participants at once.
+
+        POST /api/integration/v1/campaigns/{uuid}/bulk-invite/'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+  /campaigns/{uuid}/generate-insights/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: campaigns_generate_insights
+      description: 'Trigger insights generation for this campaign.
+
+        POST /api/integration/v1/campaigns/{uuid}/generate-insights/'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+  /campaigns/{uuid}/invite/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: campaigns_invite
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+      tags:
+      - campaigns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+        required: true
+components:
+  schemas:
+    Campaign:
+      required:
+      - name
+      - template_uuid
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique campaign identifier
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          description: Campaign name
+          type: string
+          maxLength: 255
+          minLength: 1
+        template_uuid:
+          title: Template uuid
+          type: string
+          format: uuid
+        start_at:
+          title: Start at
+          description: Campaign start time
+          type:
+          - string
+          - 'null'
+          format: date-time
+        end_at:
+          title: End at
+          description: Campaign end time
+          type:
+          - string
+          - 'null'
+          format: date-time
+        settings:
+          title: Settings
+          description: Campaign-specific settings overrides
+          type: object
+        active:
+          title: Active
+          type: boolean
+        type:
+          title: Type
+          description: Campaign type (e.g. Survey, Tutoring)
+          type: string
+          enum:
+          - survey
+          - tutoring
+        access_type:
+          title: Access type
+          description: 'Access control: Open (public link) or Invite Only'
+          type: string
+          enum:
+          - open
+          - invite_only
+        max_sessions:
+          title: Max sessions
+          description: Maximum number of sessions allowed (protection cap)
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

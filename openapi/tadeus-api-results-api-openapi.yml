@@ -1,0 +1,159 @@
+openapi: 3.2.0
+info:
+  title: Integration Results API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: results
+paths:
+  /results/:
+    parameters: []
+    get:
+      operationId: results_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Result'
+      tags:
+      - results
+  /results/export/csv/:
+    parameters: []
+    get:
+      operationId: results_export_export_csv
+      description: 'Download all results as a CSV file, with output_json fields flattened as columns.
+
+        GET /api/integration/v1/results/export/csv/'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Result'
+      tags:
+      - results
+  /results/export/json/:
+    parameters: []
+    get:
+      operationId: results_export_export_json
+      description: 'Download all results as a JSON file.
+
+        GET /api/integration/v1/results/export/json/'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Result'
+      tags:
+      - results
+  /results/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: results_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - results
+components:
+  schemas:
+    Result:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        session_uuid:
+          title: Session uuid
+          type: string
+          format: uuid
+          readOnly: true
+        campaign_uuid:
+          title: Campaign uuid
+          type: string
+          format: uuid
+          readOnly: true
+        short_summary:
+          title: Short summary
+          description: Short summary text output
+          type:
+          - string
+          - 'null'
+        summary_text:
+          title: Summary text
+          description: Summary text output
+          type:
+          - string
+          - 'null'
+        output_json:
+          title: Output json
+          type: object
+        confidence:
+          title: Confidence
+          description: Optional confidence score 0..1
+          type:
+          - number
+          - 'null'
+        relevance:
+          title: Relevance
+          description: Optional relevance score 0..1
+          type:
+          - number
+          - 'null'
+        sentiment:
+          title: Sentiment
+          description: Sentiment score -1.0..1.0
+          type:
+          - number
+          - 'null'
+        engagement:
+          title: Engagement
+          description: Engagement score 0.0..1.0
+          type:
+          - number
+          - 'null'
+        validated:
+          title: Validated
+          type: boolean
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

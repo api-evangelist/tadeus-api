@@ -1,0 +1,132 @@
+openapi: 3.2.0
+info:
+  title: Integration Attempts API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: attempts
+paths:
+  /attempts/:
+    parameters: []
+    get:
+      operationId: attempts_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attempt'
+      tags:
+      - attempts
+  /attempts/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: attempts_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attempt'
+      tags:
+      - attempts
+components:
+  schemas:
+    Attempt:
+      required:
+      - session_uuid
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          type: string
+          format: uuid
+          readOnly: true
+        session_uuid:
+          title: Session uuid
+          type: string
+          format: uuid
+        attempt_number:
+          title: Attempt number
+          type: integer
+          readOnly: true
+        state:
+          title: State
+          type: string
+          enum:
+          - not_started
+          - in_progress
+          - succeeded
+          - failed
+        success:
+          title: Success
+          type: boolean
+        start_ts:
+          title: Start ts
+          description: Server side call started timestamp
+          type:
+          - string
+          - 'null'
+          format: date-time
+        end_ts:
+          title: End ts
+          description: Server side call ended timestamp
+          type:
+          - string
+          - 'null'
+          format: date-time
+        finish_reason:
+          title: Finish reason
+          description: Reason for interview completion
+          type:
+          - string
+          - 'null'
+          maxLength: 64
+        sentiment:
+          title: Sentiment
+          description: Sentiment score -1.0-1.0
+          type:
+          - number
+          - 'null'
+        confidence:
+          title: Confidence
+          description: Confidence score 0.0-1.0
+          type:
+          - number
+          - 'null'
+        engagement:
+          title: Engagement
+          description: Engagement score 0.0-1.0
+          type:
+          - number
+          - 'null'
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

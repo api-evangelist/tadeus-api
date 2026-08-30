@@ -1,0 +1,195 @@
+openapi: 3.2.0
+info:
+  title: Integration Sessions API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: sessions
+paths:
+  /sessions/:
+    parameters: []
+    get:
+      operationId: sessions_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Session'
+      tags:
+      - sessions
+    post:
+      operationId: sessions_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+      tags:
+      - sessions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Session'
+        required: true
+  /sessions/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: sessions_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+      tags:
+      - sessions
+    put:
+      operationId: sessions_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+      tags:
+      - sessions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Session'
+        required: true
+    patch:
+      operationId: sessions_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+      tags:
+      - sessions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Session'
+        required: true
+    delete:
+      operationId: sessions_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - sessions
+components:
+  schemas:
+    Session:
+      required:
+      - campaign_uuid
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique session identifier
+          type: string
+          format: uuid
+          readOnly: true
+        campaign_uuid:
+          title: Campaign uuid
+          type: string
+          format: uuid
+        status:
+          title: Status
+          type: string
+          enum:
+          - not_started
+          - in_progress
+          - processing
+          - completed
+          - failed
+          - timeout
+        started_at:
+          title: Started at
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        last_activity_at:
+          title: Last activity at
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        attempts_allowed:
+          title: Attempts allowed
+          type: integer
+          maximum: 32767
+          minimum: 0
+        attempts_count:
+          title: Attempts count
+          type: integer
+          readOnly: true
+        success_attempts_allowed:
+          title: Success attempts allowed
+          type: integer
+          maximum: 32767
+          minimum: 0
+        success_attempts:
+          title: Success attempts
+          type: integer
+          readOnly: true
+        closed:
+          title: Closed
+          type: boolean
+        email_capture_mode:
+          title: Email capture mode
+          description: How to handle email capture when no Participant is linked
+          type: string
+          enum:
+          - none
+          - before_optional
+          - before_required
+          - after
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET

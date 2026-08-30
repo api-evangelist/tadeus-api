@@ -1,0 +1,182 @@
+openapi: 3.2.0
+info:
+  title: Integration Templates API
+  description: API Integration endpoints documentation
+  version: v1
+servers:
+- url: https://app.tadeus.net/api/integration/v1
+security:
+- api_key: []
+- api_secret: []
+tags:
+- name: templates
+paths:
+  /templates/:
+    parameters: []
+    get:
+      operationId: templates_list
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Template'
+      tags:
+      - templates
+    post:
+      operationId: templates_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+      tags:
+      - templates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+        required: true
+  /templates/{uuid}/:
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: templates_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+      tags:
+      - templates
+    put:
+      operationId: templates_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+      tags:
+      - templates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+        required: true
+    patch:
+      operationId: templates_partial_update
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+      tags:
+      - templates
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Template'
+        required: true
+    delete:
+      operationId: templates_delete
+      description: ''
+      responses:
+        '204':
+          description: ''
+      tags:
+      - templates
+components:
+  schemas:
+    Template:
+      required:
+      - name
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique template identifier
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          title: Name
+          description: Template name
+          type: string
+          maxLength: 255
+          minLength: 1
+        version:
+          title: Version
+          description: Template version
+          type: integer
+          maximum: 2147483647
+          minimum: 1
+        interview_prompt:
+          title: Interview prompt
+          description: Prompt for the Interviewer Agent
+          type: string
+        summary_prompt:
+          title: Summary prompt
+          description: Prompt for summarization
+          type: string
+        insights_prompt:
+          title: Insights prompt
+          description: Prompt for producing insights from Results/Transcripts
+          type: string
+        output_schema:
+          title: Output schema
+          description: Expected structured output schema
+          type: object
+        status:
+          title: Status
+          description: Template status
+          type: string
+          enum:
+          - draft
+          - published
+          - archived
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          title: Updated at
+          type: string
+          format: date-time
+          readOnly: true
+        campaigns:
+          title: Campaigns
+          type: string
+          readOnly: true
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-API-KEY-ID
+    api_secret:
+      type: apiKey
+      in: header
+      name: X-API-SECRET
