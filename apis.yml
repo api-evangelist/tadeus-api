@@ -62,6 +62,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Attempts
+  tags_raw:
   - attempts
   properties:
   - type: OpenAPI
@@ -76,6 +78,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Billing
+  tags_raw:
   - billing
   properties:
   - type: OpenAPI
@@ -90,6 +94,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Campaigns
+  tags_raw:
   - campaigns
   properties:
   - type: OpenAPI
@@ -104,6 +110,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Insights
+  tags_raw:
   - insights
   properties:
   - type: OpenAPI
@@ -118,6 +126,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Organisation
+  tags_raw:
   - organisation
   properties:
   - type: OpenAPI
@@ -132,6 +142,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Results
+  tags_raw:
   - results
   properties:
   - type: OpenAPI
@@ -146,6 +158,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Sessions
+  tags_raw:
   - sessions
   properties:
   - type: OpenAPI
@@ -160,6 +174,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Templates
+  tags_raw:
   - templates
   properties:
   - type: OpenAPI
@@ -174,6 +190,8 @@ apis:
   humanURL: https://app.tadeus.net/api-examples
   baseURL: https://app.tadeus.net/api/integration/v1
   tags:
+  - Transcripts
+  tags_raw:
   - transcripts
   properties:
   - type: OpenAPI
