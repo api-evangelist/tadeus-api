@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: insights
+- name: Insights
 paths:
   /insights/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/InsightList'
       tags:
-      - insights
+      - Insights
+      summary: Insights list
+      x-summary-source: derived
     post:
       operationId: insights_create
       description: ''
@@ -38,13 +40,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Insight'
         required: true
+      summary: Insights create
+      x-summary-source: derived
   /insights/{uuid}/:
     parameters:
     - name: uuid
@@ -63,7 +67,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
+      summary: Insights read
+      x-summary-source: derived
     put:
       operationId: insights_update
       description: ''
@@ -75,13 +81,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Insight'
         required: true
+      summary: Insights update
+      x-summary-source: derived
     patch:
       operationId: insights_partial_update
       description: ''
@@ -93,13 +101,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Insight'
         required: true
+      summary: Insights partial update
+      x-summary-source: derived
     delete:
       operationId: insights_delete
       description: ''
@@ -107,7 +117,9 @@ paths:
         '204':
           description: ''
       tags:
-      - insights
+      - Insights
+      summary: Insights delete
+      x-summary-source: derived
   /insights/{uuid}/html/:
     parameters:
     - name: uuid
@@ -128,7 +140,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
+      summary: Insights html
+      x-summary-source: derived
   /insights/{uuid}/lexical/:
     parameters:
     - name: uuid
@@ -149,7 +163,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
+      summary: Insights lexical
+      x-summary-source: derived
   /insights/{uuid}/md/:
     parameters:
     - name: uuid
@@ -170,7 +186,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
+      summary: Insights markdown
+      x-summary-source: derived
   /insights/{uuid}/pdf/:
     parameters:
     - name: uuid
@@ -191,7 +209,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Insight'
       tags:
-      - insights
+      - Insights
+      summary: Insights pdf
+      x-summary-source: derived
 components:
   schemas:
     InsightList:

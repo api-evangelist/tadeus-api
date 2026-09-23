@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: sessions
+- name: Sessions
 paths:
   /sessions/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Session'
       tags:
-      - sessions
+      - Sessions
+      summary: Sessions list
+      x-summary-source: derived
     post:
       operationId: sessions_create
       description: ''
@@ -38,13 +40,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Session'
       tags:
-      - sessions
+      - Sessions
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Session'
         required: true
+      summary: Sessions create
+      x-summary-source: derived
   /sessions/{uuid}/:
     parameters:
     - name: uuid
@@ -63,7 +67,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Session'
       tags:
-      - sessions
+      - Sessions
+      summary: Sessions read
+      x-summary-source: derived
     put:
       operationId: sessions_update
       description: ''
@@ -75,13 +81,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Session'
       tags:
-      - sessions
+      - Sessions
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Session'
         required: true
+      summary: Sessions update
+      x-summary-source: derived
     patch:
       operationId: sessions_partial_update
       description: ''
@@ -93,13 +101,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Session'
       tags:
-      - sessions
+      - Sessions
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Session'
         required: true
+      summary: Sessions partial update
+      x-summary-source: derived
     delete:
       operationId: sessions_delete
       description: ''
@@ -107,7 +117,9 @@ paths:
         '204':
           description: ''
       tags:
-      - sessions
+      - Sessions
+      summary: Sessions delete
+      x-summary-source: derived
 components:
   schemas:
     Session:

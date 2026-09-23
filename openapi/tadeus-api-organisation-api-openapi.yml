@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: organisation
+- name: Organisation
 paths:
   /organisation/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Organisation'
       tags:
-      - organisation
+      - Organisation
+      summary: Organisation list
+      x-summary-source: derived
   /organisation/{id}/:
     parameters:
     - name: id
@@ -45,7 +47,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organisation'
       tags:
-      - organisation
+      - Organisation
+      summary: Organisation read
+      x-summary-source: derived
 components:
   schemas:
     Organisation:

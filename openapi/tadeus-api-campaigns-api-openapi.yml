@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: campaigns
+- name: Campaigns
 paths:
   /campaigns/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
+      summary: Campaigns list
+      x-summary-source: derived
     post:
       operationId: campaigns_create
       description: ''
@@ -38,13 +40,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Campaign'
         required: true
+      summary: Campaigns create
+      x-summary-source: derived
   /campaigns/{uuid}/:
     parameters:
     - name: uuid
@@ -63,7 +67,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
+      summary: Campaigns read
+      x-summary-source: derived
     put:
       operationId: campaigns_update
       description: ''
@@ -75,13 +81,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Campaign'
         required: true
+      summary: Campaigns update
+      x-summary-source: derived
     patch:
       operationId: campaigns_partial_update
       description: ''
@@ -93,13 +101,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Campaign'
         required: true
+      summary: Campaigns partial update
+      x-summary-source: derived
     delete:
       operationId: campaigns_delete
       description: ''
@@ -107,7 +117,9 @@ paths:
         '204':
           description: ''
       tags:
-      - campaigns
+      - Campaigns
+      summary: Campaigns delete
+      x-summary-source: derived
   /campaigns/{uuid}/bulk-invite/:
     parameters:
     - name: uuid
@@ -128,13 +140,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Campaign'
         required: true
+      summary: Campaigns bulk invite
+      x-summary-source: derived
   /campaigns/{uuid}/generate-insights/:
     parameters:
     - name: uuid
@@ -155,13 +169,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Campaign'
         required: true
+      summary: Campaigns generate insights
+      x-summary-source: derived
   /campaigns/{uuid}/invite/:
     parameters:
     - name: uuid
@@ -180,13 +196,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Campaign'
       tags:
-      - campaigns
+      - Campaigns
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Campaign'
         required: true
+      summary: Campaigns invite
+      x-summary-source: derived
 components:
   schemas:
     Campaign:

@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: results
+- name: Results
 paths:
   /results/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Result'
       tags:
-      - results
+      - Results
+      summary: Results list
+      x-summary-source: derived
   /results/export/csv/:
     parameters: []
     get:
@@ -44,7 +46,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Result'
       tags:
-      - results
+      - Results
+      summary: Results export export csv
+      x-summary-source: derived
   /results/export/json/:
     parameters: []
     get:
@@ -62,7 +66,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Result'
       tags:
-      - results
+      - Results
+      summary: Results export export json
+      x-summary-source: derived
   /results/{uuid}/:
     parameters:
     - name: uuid
@@ -81,7 +87,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Result'
       tags:
-      - results
+      - Results
+      summary: Results read
+      x-summary-source: derived
 components:
   schemas:
     Result:

@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: billing
+- name: Billing
 paths:
   /billing/balance/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/CreditBalance'
       tags:
-      - billing
+      - Billing
+      summary: Billing balance list
+      x-summary-source: derived
   /billing/balance/{id}/:
     parameters:
     - name: id
@@ -45,7 +47,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreditBalance'
       tags:
-      - billing
+      - Billing
+      summary: Billing balance read
+      x-summary-source: derived
   /billing/payments/:
     parameters: []
     get:
@@ -61,7 +65,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/CreditTransaction'
       tags:
-      - billing
+      - Billing
+      summary: Billing payments list
+      x-summary-source: derived
   /billing/payments/{id}/:
     parameters:
     - name: id
@@ -80,7 +86,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreditTransaction'
       tags:
-      - billing
+      - Billing
+      summary: Billing payments read
+      x-summary-source: derived
   /billing/transactions/:
     parameters: []
     get:
@@ -96,7 +104,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/CreditTransaction'
       tags:
-      - billing
+      - Billing
+      summary: Billing transactions list
+      x-summary-source: derived
   /billing/transactions/{id}/:
     parameters:
     - name: id
@@ -115,7 +125,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreditTransaction'
       tags:
-      - billing
+      - Billing
+      summary: Billing transactions read
+      x-summary-source: derived
 components:
   schemas:
     CreditBalance:

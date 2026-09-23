@@ -1,0 +1,47 @@
+{
+  "provider": "tadeus-api",
+  "sources": [
+    "_original/tadeus-api-integration-openapi.json"
+  ],
+  "outputs": [
+    "tadeus-api-attempts-api-openapi.yml",
+    "tadeus-api-billing-api-openapi.yml",
+    "tadeus-api-campaigns-api-openapi.yml",
+    "tadeus-api-insights-api-openapi.yml",
+    "tadeus-api-organisation-api-openapi.yml",
+    "tadeus-api-results-api-openapi.yml",
+    "tadeus-api-sessions-api-openapi.yml",
+    "tadeus-api-templates-api-openapi.yml",
+    "tadeus-api-transcripts-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "tadeus-api-integration-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "tadeus-api-integration-openapi.json: declared missing tag: attempts",
+    "tadeus-api-integration-openapi.json: declared missing tag: billing",
+    "tadeus-api-integration-openapi.json: declared missing tag: campaigns",
+    "tadeus-api-integration-openapi.json: declared missing tag: insights",
+    "tadeus-api-integration-openapi.json: declared missing tag: organisation",
+    "tadeus-api-integration-openapi.json: declared missing tag: results",
+    "tadeus-api-integration-openapi.json: declared missing tag: sessions",
+    "tadeus-api-integration-openapi.json: declared missing tag: templates",
+    "tadeus-api-integration-openapi.json: declared missing tag: transcripts",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/tadeus-api-openapi.json: archived document superseded by a larger archived document",
+    "tadeus-api-attempts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-campaigns-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-insights-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-organisation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-results-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "tadeus-api-transcripts-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

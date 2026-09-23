@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: attempts
+- name: Attempts
 paths:
   /attempts/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Attempt'
       tags:
-      - attempts
+      - Attempts
+      summary: Attempts list
+      x-summary-source: derived
   /attempts/{uuid}/:
     parameters:
     - name: uuid
@@ -45,7 +47,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Attempt'
       tags:
-      - attempts
+      - Attempts
+      summary: Attempts read
+      x-summary-source: derived
 components:
   schemas:
     Attempt:

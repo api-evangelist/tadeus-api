@@ -9,7 +9,7 @@ security:
 - api_key: []
 - api_secret: []
 tags:
-- name: templates
+- name: Templates
 paths:
   /templates/:
     parameters: []
@@ -26,7 +26,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Template'
       tags:
-      - templates
+      - Templates
+      summary: Templates list
+      x-summary-source: derived
     post:
       operationId: templates_create
       description: ''
@@ -38,13 +40,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Template'
       tags:
-      - templates
+      - Templates
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Template'
         required: true
+      summary: Templates create
+      x-summary-source: derived
   /templates/{uuid}/:
     parameters:
     - name: uuid
@@ -63,7 +67,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Template'
       tags:
-      - templates
+      - Templates
+      summary: Templates read
+      x-summary-source: derived
     put:
       operationId: templates_update
       description: ''
@@ -75,13 +81,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Template'
       tags:
-      - templates
+      - Templates
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Template'
         required: true
+      summary: Templates update
+      x-summary-source: derived
     patch:
       operationId: templates_partial_update
       description: ''
@@ -93,13 +101,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Template'
       tags:
-      - templates
+      - Templates
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Template'
         required: true
+      summary: Templates partial update
+      x-summary-source: derived
     delete:
       operationId: templates_delete
       description: ''
@@ -107,7 +117,9 @@ paths:
         '204':
           description: ''
       tags:
-      - templates
+      - Templates
+      summary: Templates delete
+      x-summary-source: derived
 components:
   schemas:
     Template:
