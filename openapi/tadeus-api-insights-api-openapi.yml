@@ -214,6 +214,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    InsightList:
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unique insight identifier
+          type: string
+          format: uuid
+        created_at:
+          title: Created at
+          type: string
+          format: date-time
+          readOnly: true
     Insight:
       required:
       - content
@@ -239,19 +252,6 @@ components:
           title: Output json summary
           description: Aggregated JSON summary based on output_schema
           type: object
-        created_at:
-          title: Created at
-          type: string
-          format: date-time
-          readOnly: true
-    InsightList:
-      type: object
-      properties:
-        uuid:
-          title: Uuid
-          description: Unique insight identifier
-          type: string
-          format: uuid
         created_at:
           title: Created at
           type: string
