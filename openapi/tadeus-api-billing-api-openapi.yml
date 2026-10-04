@@ -130,24 +130,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CreditBalance:
-      type: object
-      properties:
-        balance:
-          title: Balance
-          description: Integer credits, 10 Credits = $0.01
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        total_deposited:
-          title: Total deposited
-          type: string
-          readOnly: true
-        updated_at:
-          title: Updated at
-          type: string
-          format: date-time
-          readOnly: true
     CreditTransaction:
       required:
       - amount
@@ -190,6 +172,24 @@ components:
           - 'null'
           maximum: 2147483647
           minimum: -2147483648
+    CreditBalance:
+      type: object
+      properties:
+        balance:
+          title: Balance
+          description: Integer credits, 10 Credits = $0.01
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_deposited:
+          title: Total deposited
+          type: string
+          readOnly: true
+        updated_at:
+          title: Updated at
+          type: string
+          format: date-time
+          readOnly: true
   securitySchemes:
     api_key:
       type: apiKey
