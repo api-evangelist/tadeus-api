@@ -222,6 +222,8 @@ generated:
   confidence: 95
   at: '2026-07-06T14:27:09.314Z'
 common:
+- type: RateLimits
+  url: rate-limits/tadeus-api-rate-limits.yml
 - type: Overlay
   url: overlays/tadeus-api-integration-overlay.yaml
 - type: Website
