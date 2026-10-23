@@ -99,3 +99,9 @@ components:
       type: apiKey
       in: header
       name: X-API-SECRET
+x-provenance:
+  method: harvested
+  publisher: Tadeus API
+  source: https://app.tadeus.net/api/integration/v1/swagger/?format=openapi
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
